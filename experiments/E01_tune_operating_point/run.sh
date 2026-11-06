@@ -9,7 +9,7 @@
 set -euo pipefail
 E=$(cd "$(dirname "$0")" && pwd)
 cd "$E/../.."
-PY=${PY:-/DATA0/dahee/diversity/.miniconda3/envs/diversity/bin/python}
+PY=${PY:-/NHNHOME/workspace/miniforge3/envs/flowlab/bin/python}
 GPUS=${GPUS:-"1 2 3"}
 lanes() { $PY "$E/e01.py" jobs "$@" > "$E/jobs_$1.txt"; $PY scripts/lanes.py "$E/jobs_$1.txt" --gpus $GPUS --logs "$E/logs/$1"; }
 case "${1:-}" in

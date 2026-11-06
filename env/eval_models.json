@@ -1,0 +1,97 @@
+{
+ "hf": {
+  "openai/clip-vit-base-patch32": {
+   "revision": "3d74acf9a28c67741b2f4f2ea7635f0aaf6f0268",
+   "files": [
+    "config.json",
+    "merges.txt",
+    "preprocessor_config.json",
+    "pytorch_model.bin",
+    "special_tokens_map.json",
+    "tokenizer.json",
+    "tokenizer_config.json",
+    "vocab.json"
+   ]
+  },
+  "openai/clip-vit-large-patch14": {
+   "revision": "32bd64288804d66eefd0ccbe215aa642df71cc41",
+   "files": [
+    "config.json",
+    "merges.txt",
+    "model.safetensors",
+    "preprocessor_config.json",
+    "special_tokens_map.json",
+    "tokenizer.json",
+    "tokenizer_config.json",
+    "vocab.json"
+   ]
+  },
+  "facebook/dinov2-small": {
+   "revision": "ed25f3a31f01632728cabb09d1542f84ab7b0056",
+   "files": [
+    "config.json",
+    "model.safetensors",
+    "preprocessor_config.json"
+   ]
+  },
+  "yuvalkirstain/PickScore_v1": {
+   "revision": "a4e4367c6dfa7288a00c550414478f865b875800",
+   "files": [
+    "config.json",
+    "merges.txt",
+    "model.safetensors",
+    "preprocessor_config.json",
+    "special_tokens_map.json",
+    "tokenizer.json",
+    "tokenizer_config.json",
+    "vocab.json"
+   ]
+  },
+  "laion/CLIP-ViT-H-14-laion2B-s32B-b79K": {
+   "revision": "1c2b8495b28150b8a4922ee1c8edee224c284c0c",
+   "files": [
+    "config.json",
+    "merges.txt",
+    "open_clip_config.json",
+    "preprocessor_config.json",
+    "special_tokens_map.json",
+    "tokenizer.json",
+    "tokenizer_config.json",
+    "vocab.json"
+   ]
+  },
+  "bert-base-uncased": {
+   "revision": "86b5e0934494bd15c9632b12f734a8a67f723594",
+   "files": [
+    "config.json",
+    "coreml",
+    "tokenizer.json",
+    "tokenizer_config.json",
+    "vocab.txt"
+   ]
+  }
+ },
+ "files": {
+  "inception-2015-12-05.pt": {
+   "url": "https://nvlabs-fi-cdn.nvidia.com/stylegan2-ada-pytorch/pretrained/metrics/inception-2015-12-05.pt",
+   "sha256": "f58cb9b6ec323ed63459aa4fb441fe750cfe39fafad6da5cb504a16f19e958f4",
+   "bytes": 95607719
+  },
+  "sac_logos_ava1_l14_linearMSE.pth": {
+   "url": "https://github.com/christophschuhmann/improved-aesthetic-predictor/raw/main/sac+logos+ava1-l14-linearMSE.pth",
+   "sha256": "21dd590f3ccdc646f0d53120778b296013b096a035a2718c9cb0d511bff0f1e0",
+   "bytes": 3714759
+  }
+ },
+ "image_reward": {
+  "ImageReward.pt": {
+   "path": "/home/sali_lab/.cache/ImageReward/ImageReward.pt",
+   "sha256": "d71dc8d4912bc633c06ab8ef1ef6a81e8199d4369f14b47b29baf1d19de561f6"
+  },
+  "med_config.json": {
+   "path": "/home/sali_lab/.cache/ImageReward/med_config.json",
+   "sha256": "d8b5029cc3c0124313d17009d043f0701bbe497f3721fa4ceb818720fe665326"
+  }
+ },
+ "alexnet": "torchvision AlexNet_Weights.IMAGENET1K_V1"
+}

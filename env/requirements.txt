@@ -31,6 +31,9 @@ imageio-ffmpeg==0.6.0
 clean-fid==0.1.35
 lpips==0.1.4
 image-reward==1.5
+# image-reward imports `clip` (OpenAI CLIP, PyPI openai-clip) without declaring it; the results' env had it (2026-11-06)
+openai-clip==1.0.1
+ftfy==6.3.1
 # div/metrics.py image_reward() imports pkg_resources: keep setuptools below 81
 setuptools==70.2.0
 packaging==26.0

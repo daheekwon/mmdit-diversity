@@ -1,1 +1,1 @@
-16.0	cd /DATA0/dahee/diversity_migration/mmdit_diversity && PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True /DATA0/dahee/diversity/.miniconda3/envs/diversity/bin/python scripts/generate.py --model klein --dataset coco48 --preset dave --name dave_a0.2 --gpu {gpu} --shard 0/1
+16.0	cd /NHNHOME/workspace/mmdit-diversity && PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True /NHNHOME/workspace/miniforge3/envs/flowlab/bin/python scripts/generate.py --model klein --dataset coco48 --preset dave --name dave_a0.2 --gpu {gpu} --shard 0/1

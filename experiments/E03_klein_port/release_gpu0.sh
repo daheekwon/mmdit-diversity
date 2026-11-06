@@ -3,9 +3,9 @@
 # Keeps new klein generation jobs off GPU 0 (outputs/.pause_gpu0; scripts/generate.py waits while it exists, before
 # touching the GPU) until that queue logs "END U4TJ", 4 h at most. Running klein jobs are not touched.
 set -u
-cd /DATA0/dahee/diversity_migration/mmdit_diversity
+cd /NHNHOME/workspace/mmdit-diversity
 L=experiments/E03_klein_port/logs
-Q=/DATA0/dahee/diversity_migration/value_diversity/results/generalize/sx_coco/queue/nohup.out
+Q=/NHNHOME/workspace/value_diversity/results/generalize/sx_coco/queue/nohup.out
 P=outputs/.pause_gpu0
 log() { echo "$(date '+%F %T') gpu0 hold: $*" >> $L/driver.log; }
 touch $P

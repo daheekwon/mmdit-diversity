@@ -13,7 +13,7 @@ from pathlib import Path
 PKG = Path(__file__).resolve().parents[2]
 REPO = PKG.parent
 OUT = PKG/'outputs'/'e06_boundary'
-COCO_TUNE = Path('/DATA0/dahee/data/datasets/coco/captions_val2017_tune50_no_coco48.json')
+COCO_TUNE = Path('/NHNHOME/workspace/data/coco/captions_val2017_tune50_no_coco48.json')
 RES = 512
 
 COMP = [

@@ -11,7 +11,7 @@ HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
 import common as C                                                            # noqa: E402
 
-PY = '/DATA0/dahee/diversity/.miniconda3/envs/diversity/bin/python'
+PY = '/NHNHOME/workspace/miniforge3/envs/flowlab/bin/python'
 ENV = ['env', 'PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True']
 GEN_MEM = dict(sd35=10, flux=26)
 SHARDS = dict(e06=8, ho4=4)

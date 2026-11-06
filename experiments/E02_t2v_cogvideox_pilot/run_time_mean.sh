@@ -6,7 +6,7 @@
 set -uo pipefail
 HERE=$(cd "$(dirname "$0")" && pwd)
 ROOT=$(cd "$HERE/../.." && pwd)
-PY=/DATA0/dahee/diversity/.miniconda3/envs/diversity/bin/python
+PY=/NHNHOME/workspace/miniforge3/envs/flowlab/bin/python
 J="bash $HERE/gpu_job.sh"
 GEN="$PY $ROOT/scripts/generate.py --model cogvideox --dataset vbench_tune --n-prompts 16 --samples 8 --gpu {gpu}"
 OUT=$ROOT/outputs/cogvideox/vbench_tune

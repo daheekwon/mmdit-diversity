@@ -30,7 +30,7 @@ from fit_basis import BASES, save                                             # 
 from fit_basis_resumable import capture_resumable                             # noqa: E402
 
 NAME, TOKEN = 'cogvideox_pilot_framemean_k256', 'cogvideox_pilot_k256'
-PROMPTS = '/DATA0/dahee/data/datasets/vbench/calib_dimension_longer_32.txt'
+PROMPTS = '/NHNHOME/workspace/data/vbench/calib_dimension_longer_32.txt'
 
 
 class FrameMeanMoments(basis.Moments):

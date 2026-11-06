@@ -17,7 +17,7 @@ model:
 method:
   v_edit:                  # image V: amplify the seed-contrast subspace, V' = V + (lam-1) Q Q^T (V - b)
     enabled: false
-    basis: bases/sd35_legacy_dev8_b0to23_k256.pt
+    basis: bases/sd35_calib32_s0-11_k256.pt    # E07 (2026-11-06): calib32 x 16 seeds, 1024, all blocks, steps 0-11
     lam: 1.14              # the same lam on every edited block (value_diversity generalize/allblock qa_l1.14, 2026-11-05)
     strength: null         # alternative to lam: relative image-V change, lam = 1 + strength/unit; set one of the two
     blocks: all

@@ -3,10 +3,10 @@ import hashlib, json
 from pathlib import Path
 import numpy as np, pandas as pd
 import sys
-sys.path.insert(0, '/DATA0/dahee/diversity_migration')
+sys.path.insert(0, '/NHNHOME/workspace')
 from value_diversity.vendi_eval import vendi
 H = Path(__file__).parent
-EV = Path('/DATA0/dahee/diversity_migration/mmdit_diversity/outputs/klein/eval/ho3')
+EV = Path('/NHNHOME/workspace/mmdit-diversity/outputs/klein/eval/ho3')
 G, CACHE = EV/'generation', EV/'eval_cache'
 key = json.load(open(H/'key.json'))
 MODES = ['original', 'dave_a0.2~0-10'] + [f'q_l{l}@0-24~0-10+pad_v0.25~0-10' for l in (1.3, 1.5, 1.7)]

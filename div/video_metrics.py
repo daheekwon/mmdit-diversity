@@ -40,7 +40,7 @@ FRAMES9 = list(range(0, N_FRAMES, 6))
 JUDGE_FRAMES = [0, 16, 32, 48]
 METRICS = ('dino', 'musiq', 'judge', 'flow')
 FLOW_TOP, FLOW_UPDATES, FLOW_BATCH = .05, 20, 8   # VBench dynamic degree: top 5% of the magnitudes, RAFT 20 iterations
-ANAL = Path('/DATA0/dahee/diversity_migration/diversity_anal')    # MUSIQ runtime and weights, judge (image experiments)
+ANAL = Path('/NHNHOME/workspace/diversity_anal/div-attn')    # MUSIQ runtime and weights, judge (image experiments)
 
 
 def read_video(path):

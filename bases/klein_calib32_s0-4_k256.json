@@ -1,0 +1,246 @@
+{
+ "model": "klein",
+ "k": 256,
+ "beta": 1.0,
+ "blocks": [
+  0,
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9,
+  10,
+  11,
+  12,
+  13,
+  14,
+  15,
+  16,
+  17,
+  18,
+  19,
+  20,
+  21,
+  22,
+  23,
+  24
+ ],
+ "unit": {
+  "0": 0.5893498349001683,
+  "1": 0.7136521741936995,
+  "2": 0.5724024980063037,
+  "3": 0.5232706686211982,
+  "4": 0.5414211167333455,
+  "5": 0.4351559113702203,
+  "6": 0.5517749133322382,
+  "7": 0.5264647860897254,
+  "8": 0.5031002601536309,
+  "9": 0.45778557007489074,
+  "10": 0.40795010992848624,
+  "11": 0.2107445854244042,
+  "12": 0.2338974858851123,
+  "13": 0.23498220020995295,
+  "14": 0.24379172260433324,
+  "15": 0.23219992284109803,
+  "16": 0.45767546393931136,
+  "17": 0.5956221952861297,
+  "18": 0.656540471274302,
+  "19": 0.6219096897958335,
+  "20": 0.5695514658871991,
+  "21": 0.5424317078053229,
+  "22": 0.4540053703890618,
+  "23": 0.3964026575973988,
+  "24": 0.31659170779549634
+ },
+ "check": {
+  "0": {
+   "selectivity_ab": 25.037162809852127,
+   "selectivity_ba": 25.046718708124093,
+   "energy_share": 0.3473332278968557
+  },
+  "1": {
+   "selectivity_ab": 10.51078355007827,
+   "selectivity_ba": 10.298735642263564,
+   "energy_share": 0.5092994257313945
+  },
+  "2": {
+   "selectivity_ab": 13.317811679628063,
+   "selectivity_ba": 11.595907577703938,
+   "energy_share": 0.3276446197238565
+  },
+  "3": {
+   "selectivity_ab": 14.748039188890319,
+   "selectivity_ba": 14.095764673087613,
+   "energy_share": 0.27381219263927586
+  },
+  "4": {
+   "selectivity_ab": 13.364304601909739,
+   "selectivity_ba": 11.878323274462366,
+   "energy_share": 0.2931368256447829
+  },
+  "5": {
+   "selectivity_ab": 17.35408920712393,
+   "selectivity_ba": 14.998180397983726,
+   "energy_share": 0.18936066720044703
+  },
+  "6": {
+   "selectivity_ab": 5.94321068714442,
+   "selectivity_ba": 4.927036069295835,
+   "energy_share": 0.30445555498279897
+  },
+  "7": {
+   "selectivity_ab": 5.623028200019692,
+   "selectivity_ba": 4.62048547345148,
+   "energy_share": 0.2771651709925003
+  },
+  "8": {
+   "selectivity_ab": 4.734769864643838,
+   "selectivity_ba": 3.956756423588173,
+   "energy_share": 0.253109871766651
+  },
+  "9": {
+   "selectivity_ab": 4.025024902207243,
+   "selectivity_ba": 3.3723483530258944,
+   "energy_share": 0.2095676281687927
+  },
+  "10": {
+   "selectivity_ab": 4.378905825943296,
+   "selectivity_ba": 3.6497058245473566,
+   "energy_share": 0.16642329219066399
+  },
+  "11": {
+   "selectivity_ab": 36.118307801037965,
+   "selectivity_ba": 30.350933222916076,
+   "energy_share": 0.044413280285703995
+  },
+  "12": {
+   "selectivity_ab": 28.780169781254177,
+   "selectivity_ba": 24.83779484484257,
+   "energy_share": 0.054708033903376314
+  },
+  "13": {
+   "selectivity_ab": 26.23687657872639,
+   "selectivity_ba": 22.861776176343728,
+   "energy_share": 0.055216634415510404
+  },
+  "14": {
+   "selectivity_ab": 28.465202182227355,
+   "selectivity_ba": 24.52039461939914,
+   "energy_share": 0.059434404010388166
+  },
+  "15": {
+   "selectivity_ab": 30.14215372169673,
+   "selectivity_ba": 26.16473573306577,
+   "energy_share": 0.05391680416741188
+  },
+  "16": {
+   "selectivity_ab": 7.726079245031377,
+   "selectivity_ba": 6.507986055047226,
+   "energy_share": 0.2094668302920639
+  },
+  "17": {
+   "selectivity_ab": 9.880364169545619,
+   "selectivity_ba": 8.80758253735042,
+   "energy_share": 0.3547657995174684
+  },
+  "18": {
+   "selectivity_ab": 6.998014573072471,
+   "selectivity_ba": 6.292750812310785,
+   "energy_share": 0.43104539042108264
+  },
+  "19": {
+   "selectivity_ab": 6.87738552134058,
+   "selectivity_ba": 6.029123397351384,
+   "energy_share": 0.3867716622619498
+  },
+  "20": {
+   "selectivity_ab": 9.530336161048492,
+   "selectivity_ba": 8.162865514339364,
+   "energy_share": 0.3243888722942573
+  },
+  "21": {
+   "selectivity_ab": 9.83504475566797,
+   "selectivity_ba": 8.343718043792611,
+   "energy_share": 0.29423215763259924
+  },
+  "22": {
+   "selectivity_ab": 18.490860453009766,
+   "selectivity_ba": 15.21381210129321,
+   "energy_share": 0.20612087634210918
+  },
+  "23": {
+   "selectivity_ab": 15.212263050000582,
+   "selectivity_ba": 12.646325968292595,
+   "energy_share": 0.15713506695028057
+  },
+  "24": {
+   "selectivity_ab": 16.818128349301972,
+   "selectivity_ba": 14.144904042763443,
+   "energy_share": 0.10023030944486895
+  }
+ },
+ "source": "fit",
+ "prompts": [
+  "A rabbit",
+  "A parrot",
+  "An elephant",
+  "A dog running on grass",
+  "A clock",
+  "A guitar",
+  "A backpack",
+  "A glass vase with flowers",
+  "A forest path",
+  "A city skyline at night",
+  "A desert",
+  "A cozy living room",
+  "An old man smiling",
+  "A musician playing the violin",
+  "Children playing soccer",
+  "A person riding a bicycle",
+  "A plate of pasta",
+  "A cup of coffee",
+  "A pizza",
+  "A sandwich",
+  "A bus",
+  "An airplane",
+  "A motorcycle",
+  "A fishing boat",
+  "A castle",
+  "A lighthouse",
+  "A bridge over a river",
+  "A temple",
+  "A sunflower field",
+  "A cactus",
+  "A bonsai tree",
+  "A rose garden"
+ ],
+ "seeds": [
+  9000000,
+  9000001,
+  9000002,
+  9000003,
+  9000004,
+  9000005,
+  9000006,
+  9000007,
+  9000008,
+  9000009,
+  9000010,
+  9000011,
+  9000012,
+  9000013,
+  9000014,
+  9000015
+ ],
+ "steps": [
+  0,
+  1,
+  2,
+  3,
+  4
+ ]
+}

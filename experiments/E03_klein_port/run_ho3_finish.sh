@@ -7,9 +7,9 @@
 # 3. evaluate ho3 (same steps as run.sh evaluate) -> report + sheets; "EVAL_DONE ho3 (main)", "ALL_DONE" in driver.log
 # Usage: setsid nohup bash experiments/E03_klein_port/run_ho3_finish.sh <pid> [<pid> ...] &
 set -u
-cd /DATA0/dahee/diversity_migration/mmdit_diversity
+cd /NHNHOME/workspace/mmdit-diversity
 E=experiments/E03_klein_port
-PY=/DATA0/dahee/diversity/.miniconda3/envs/diversity/bin/python
+PY=/NHNHOME/workspace/miniforge3/envs/flowlab/bin/python
 L=$E/logs
 GPUS="${GPUS:-0 1 2 3}"
 log() { echo "$(date '+%F %T') $*" >> $L/driver.log; }

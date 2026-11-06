@@ -5,7 +5,7 @@
 set -uo pipefail
 HERE=$(cd "$(dirname "$0")" && pwd)
 ROOT=$(cd "$HERE/../.." && pwd)
-PY=/DATA0/dahee/diversity/.miniconda3/envs/diversity/bin/python
+PY=/NHNHOME/workspace/miniforge3/envs/flowlab/bin/python
 OUT=$ROOT/outputs/cogvideox/vbench_tune
 PILOT=$ROOT/outputs/cogvideox/pilot
 until grep -q ALL_DONE "$PILOT/logs/stage2a_driver.log" 2>/dev/null; do sleep 300; done

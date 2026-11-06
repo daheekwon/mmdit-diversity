@@ -9,9 +9,9 @@
 # GPUs 0-2 through scripts/lanes.py (memory checks; other sessions share them). GPU 3 is left for the queued SD3.5
 # uvr_attention aligned run. Every stage resumes: lanes.py keeps state.json, generation skips finished images.
 set -u
-cd /DATA0/dahee/diversity_migration/mmdit_diversity
+cd /NHNHOME/workspace/mmdit-diversity
 E=experiments/E03_klein_port
-PY=/DATA0/dahee/diversity/.miniconda3/envs/diversity/bin/python
+PY=/NHNHOME/workspace/miniforge3/envs/flowlab/bin/python
 L=$E/logs
 GPUS="${GPUS:-0 1 2}"   # override: GPUS="1 2 3" bash run.sh
 SPLITS="dev ho3 coco48"

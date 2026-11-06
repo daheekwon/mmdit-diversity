@@ -129,8 +129,10 @@ def evaluate(run, cfg, device='cuda:0', which=PER_IMAGE+PER_PROMPT+SET):
         per['lpips'] = _lpips(done, device)
     summary = dict(run=str(run), prompts=len(done), images=len(files), prompts_total=len(rows),
                    **{f'{c}_mean': float(per[c].mean()) for c in per.columns})
-    if len(done) == len(rows) and any(s in which for s in SET):
-        dataset, size = json.loads((run/'run.json').read_text())['dataset'], cfg.model.resolution
+    dataset = json.loads((run/'run.json').read_text())['dataset']
+    has_real = data.base(cfg.data, dataset) not in ('split', 'vbench')      # the fixed splits have no real set
+    if len(done) == len(rows) and has_real and any(s in which for s in SET):
+        size = cfg.model.resolution
         real_dir = ROOT/'outputs'/'real'/f'{data.base(cfg.data, dataset)}_{size}'
         real = features.cached(real_dir, 'inception', data.real_images(cfg.data, dataset), device, size=size)
         fake = feat('inception')

@@ -16,9 +16,9 @@ sys.path.insert(0, str(ROOT))
 from div import analysis, config, data, splits                                # noqa: E402
 
 E = Path(__file__).resolve().parent
-PY = '/DATA0/dahee/diversity/.miniconda3/envs/diversity/bin/python'
+PY = '/NHNHOME/workspace/miniforge3/envs/flowlab/bin/python'
 DCFG = OmegaConf.load(ROOT/'configs'/'data.yaml')
-COCO = Path('/DATA0/dahee/data/datasets/coco')
+COCO = Path('/NHNHOME/workspace/data/coco')
 TEST_SRC = COCO/'captions_val2017_img500_cap500.json'      # the 500-caption file of the DAVE paper scale (user, 11-04)
 TUNE_SRC = COCO/'captions_val2017_tune50.json'             # 11-04 tune file, before the COCO 48 replacement
 MODELS = ('flux', 'sd35')                         # FLUX first: its jobs are the longest

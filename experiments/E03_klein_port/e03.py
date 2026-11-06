@@ -21,7 +21,7 @@ E = Path(__file__).resolve().parent
 ROOT = E.parents[1]                                   # mmdit_diversity
 MIG = ROOT.parent                                     # diversity_migration
 sys.path.insert(0, str(ROOT))
-PY = '/DATA0/dahee/diversity/.miniconda3/envs/diversity/bin/python'
+PY = '/NHNHOME/workspace/miniforge3/envs/flowlab/bin/python'
 OUT = ROOT/'outputs'/'klein'
 EVAL = OUT/'eval'
 SPLITS = ['dev', 'ho3', 'coco48']

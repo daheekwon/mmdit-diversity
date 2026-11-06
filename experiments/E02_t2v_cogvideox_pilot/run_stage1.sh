@@ -4,7 +4,7 @@
 set -euo pipefail
 GPU=${1:?gpu}
 ROOT=$(cd "$(dirname "$0")/../.." && pwd)
-PY=/DATA0/dahee/diversity/.miniconda3/envs/diversity/bin/python
+PY=/NHNHOME/workspace/miniforge3/envs/flowlab/bin/python
 LOG=$ROOT/outputs/cogvideox/pilot/logs
 mkdir -p "$LOG"
 cd "$ROOT"

@@ -5,7 +5,7 @@ from pathlib import Path
 import pandas as pd
 from PIL import Image, ImageDraw, ImageFont
 H = Path(__file__).parent
-EV = Path('/DATA0/dahee/diversity_migration/mmdit_diversity/outputs/klein/eval/ho3/generation')
+EV = Path('/NHNHOME/workspace/mmdit-diversity/outputs/klein/eval/ho3/generation')
 OUT = H.parent/'sheets'/'compare_final'
 OUT.mkdir(exist_ok=True)
 key = json.load(open(H/'key.json'))

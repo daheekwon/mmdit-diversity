@@ -3,7 +3,7 @@ seeds 0-7 and 8-15 on two sheets. Key in key.json (not opened before counts.csv 
 import json, random
 from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont
-G = Path('/DATA0/dahee/diversity_migration/mmdit_diversity/outputs/klein/eval/ho3/generation')
+G = Path('/NHNHOME/workspace/mmdit-diversity/outputs/klein/eval/ho3/generation')
 OUT = Path(__file__).parent
 MODES = ['original', 'dave_a0.2~0-10'] + [f'q_l{l}@0-24~0-10+pad_v0.25~0-10' for l in (1.3, 1.5, 1.7)]
 T, LAB = 192, 40

@@ -1,1 +1,1 @@
-20.0	cd /DATA0/dahee/diversity_migration/mmdit_diversity && PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True /DATA0/dahee/diversity/.miniconda3/envs/diversity/bin/python scripts/fit_basis.py --model klein --name klein_dev8_s0-10_k256 --dataset dev8 --steps 0-10 --gpu {gpu}
+20.0	cd /NHNHOME/workspace/mmdit-diversity && PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True /NHNHOME/workspace/miniforge3/envs/flowlab/bin/python scripts/fit_basis.py --model klein --name klein_dev8_s0-10_k256 --dataset dev8 --steps 0-10 --gpu {gpu}

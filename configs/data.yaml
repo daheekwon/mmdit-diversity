@@ -4,15 +4,16 @@
 samples_per_prompt: 10
 
 imagenet:
-  val_dir: /DATA0/dahee/data/datasets/imagenet/val
-  devkit: /DATA0/dahee/data/datasets/imagenet/devkit/ILSVRC2012_devkit_t12
-  template: "a photo of a {}"     # class name = first synonym in the devkit's meta.mat
+  val_dir: /NHNHOME/workspace/data/imagenet/val      # this server: one folder per WNID (val/<wnid>/ILSVRC2012_val_*.JPEG)
+  devkit: null                    # earlier server: ILSVRC2012_devkit_t12 (meta.mat + validation ground truth)
+  classes: /NHNHOME/workspace/data/imagenet/hf/classes.py   # used when devkit is null: HF imagenet-1k IMAGENET2012_CLASSES
+  template: "a photo of a {}"     # class name = first synonym of the class (devkit meta.mat words / the same HF list)
   real_per_class: 10              # 10 x 1000 = 10K real images (first files by name in each class)
   seed_base: 0                    # seed of sample j of prompt i = seed_base + 100 i + j (same for every method)
 
 coco:
-  prompts: /DATA0/dahee/data/datasets/coco/captions_val2017_img500_cap500_no_coco48.json   # 500 val2017 images, one caption each; the 5 COCO 48 images replaced in place (E01 coco-sets)
-  real_dir: /DATA0/dahee/data/datasets/coco/images/val2017   # all 5,000 images
+  prompts: /NHNHOME/workspace/data/coco/captions_val2017_img500_cap500.json   # 500 val2017 images, one caption each (original; user 2026-11-06. Earlier results: the _no_coco48 file)
+  real_dir: /NHNHOME/workspace/data/coco/images/val2017   # all 5,000 images
   seed_base: 1000000
 
 # Tune sets (experiments/E01): images disjoint from the test sets above; FID / PRDC against the base dataset's real set.
@@ -23,14 +24,14 @@ imagenet_tune:
 
 coco_tune:
   base: coco
-  prompts: /DATA0/dahee/data/datasets/coco/captions_val2017_tune50_no_coco48.json   # 50 val2017 images outside the test 500, one caption each; 1 COCO 48 image replaced (E01 coco-sets)
+  prompts: /NHNHOME/workspace/data/coco/captions_val2017_tune50.json   # 50 val2017 images outside the test 500, one caption each (original; earlier results: _no_coco48)
   seed_base: 3000000
 
 # Video prompts: VBench (github.com/Vchitect/VBench, commit fd18b3d055cb). The long prompts are VBench's GPT-4o rewrites for
 # CogVideoX-style models (prompts/augmented_prompts/gpt_enhanced_prompts), line by line with the short originals.
 vbench:
-  prompts: /DATA0/dahee/data/datasets/vbench/all_category_longer.txt
-  short_prompts: /DATA0/dahee/data/datasets/vbench/all_category.txt
+  prompts: /NHNHOME/workspace/data/vbench/all_category_longer.txt
+  short_prompts: /NHNHOME/workspace/data/vbench/all_category.txt
   id_prefix: vb
   categories: [animal, architecture, food, human, lifestyle, plant, scenery, vehicles]
   per_category: 100
@@ -38,18 +39,18 @@ vbench:
 
 vbench_tune:                      # dimension prompts: no overlap with the 800 category prompts
   base: vbench
-  prompts: /DATA0/dahee/data/datasets/vbench/all_dimension_longer.txt
-  short_prompts: /DATA0/dahee/data/datasets/vbench/all_dimension.txt
+  prompts: /NHNHOME/workspace/data/vbench/all_dimension_longer.txt
+  short_prompts: /NHNHOME/workspace/data/vbench/all_dimension.txt
   id_prefix: vd
   n_subset: 50                    # first 50 of the fixed shuffle
   seed_base: 5000000
 
-# The value_diversity splits (div/splits.py): fixed prompt ids and seed lists of the SD3.5 / FLUX.1 generalize program.
+# Fixed splits (div/splits.py, made anew 2026-11-06; not the value_diversity prompts of the earlier results).
 dev:
   split: dev                      # 8 general dev prompts + 6 rare, seeds 50000-50015
   samples: 16
 dev8:
-  split: dev8                     # the 8 general dev prompts with the calibration seeds 40000-40015 (earlier bases)
+  split: dev8                     # the 8 general dev prompts, seeds 40000-40015
   samples: 16
 ho3:
   split: ho3                      # 18 prompts, seeds 66000-66015
@@ -58,8 +59,9 @@ coco48:
   split: coco48                   # 48 COCO val2017 captions, seeds 68000-68015
   samples: 16
 
-# V-edit basis fitting. The prompt file is still to be decided (it must not be the old dev prompts).
+# V-edit basis fitting (2026-11-06, user: a calibration set separate from the splits). 32 prompts, 8 categories x 4,
+# disjoint from dev / ho3 (tests/test_klein.py). Relative paths are relative to the repository root.
 calibration:
-  prompts: null
+  prompts: splits/calib32.txt
   seeds: 16
   seed_base: 9000000

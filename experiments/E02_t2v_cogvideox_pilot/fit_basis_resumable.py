@@ -3,7 +3,7 @@ process and gpu_job.sh restarts it). Same capture as div/basis.capture (div/basi
 prompts in file order), same fit and output files as scripts/fit_basis.py (bases/<name>.pt, .json, _moments.pt).
 
   python experiments/E02_t2v_cogvideox_pilot/fit_basis_resumable.py --name cogvideox_pilot_k256 \
-      --prompts /DATA0/dahee/data/datasets/vbench/calib_dimension_longer_32.txt --seeds 8 --gpu 0
+      --prompts /NHNHOME/workspace/data/vbench/calib_dimension_longer_32.txt --seeds 8 --gpu 0
 
 The checkpoint bases/<name>_capture_ckpt.pt holds the raw moment sums (float64) and the number of prompts done; it is
 removed after the fit.

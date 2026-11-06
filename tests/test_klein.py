@@ -12,27 +12,29 @@ from div.method import Controller                                             # 
 G = torch.Generator().manual_seed(0)    # local RNG: test_method.py draws from the global one seeded at import
 
 
-def test_splits_match_value_diversity():
-    sys.path.insert(0, str(splits.LEGACY.parent))
-    from value_diversity.flux_transfer_plan import DEVELOPMENT_PROMPTS, DEVELOPMENT_SEEDS, CALIBRATION_SEEDS
-    from value_diversity.combo_flux import RARE_PROMPTS
-    from value_diversity import ho3_split, coco48_split
-    rows, seeds = splits.split('dev')
-    assert [(r['id'], r['prompt']) for r in rows] == [(p['id'], p['prompt']) for p in DEVELOPMENT_PROMPTS+RARE_PROMPTS]
-    assert seeds == DEVELOPMENT_SEEDS
-    rows, seeds = splits.split('dev8')
-    assert [r['prompt'] for r in rows] == [p['prompt'] for p in DEVELOPMENT_PROMPTS] and seeds == CALIBRATION_SEEDS
-    rows, seeds = splits.split('ho3')
-    assert [(r['id'], r['prompt']) for r in rows] == [(p['id'], p['prompt']) for p in ho3_split.PROMPTS]
-    assert seeds == list(range(66000, 66016))
-    rows, seeds = splits.split('coco48')
-    assert [(r['id'], r['prompt']) for r in rows] == [(p['id'], p['prompt']) for p in coco48_split.PROMPTS]
-    assert seeds == coco48_split.SEEDS and len(rows) == 48
+def test_splits_are_disjoint():
+    """The splits of div/splits.py (made anew 2026-11-06) and the calibration set: sizes, unique ids, no shared prompt."""
+    d = OmegaConf.load(config.ROOT/'configs'/'data.yaml')
+    norm = lambda p: p.lower().rstrip('.')
+    dev, seeds = splits.split('dev')
+    assert len(dev) == 14 and seeds == list(range(50000, 50016))
+    dev8, seeds = splits.split('dev8')
+    assert dev8 == dev[:8] and seeds == list(range(40000, 40016))
+    ho3, seeds = splits.split('ho3')
+    assert len(ho3) == 18 and seeds == list(range(66000, 66016))
+    calib = data.calibration_prompts(d)
+    assert len(calib) == len(set(calib)) == 32
+    groups = [{norm(r['prompt']) for r in dev}, {norm(r['prompt']) for r in ho3}, {norm(p) for p in calib}]
+    assert [len(g) for g in groups] == [14, 18, 32]
+    assert all(not (a & b) for i, a in enumerate(groups) for b in groups[i+1:])
+    ids = [r['id'] for r in dev+ho3]
+    assert len(ids) == len(set(ids))
 
 
 def test_split_datasets():
     d = OmegaConf.load(config.ROOT/'configs'/'data.yaml')
-    for name, n in (('dev', 14), ('dev8', 8), ('ho3', 18), ('coco48', 48)):
+    splits_present = [('dev', 14), ('dev8', 8), ('ho3', 18)] + ([('coco48', 48)] if splits.COCO48.exists() else [])
+    for name, n in splits_present:
         rows = data.prompts(d, name)
         assert len(rows) == n and all(len(r['seeds']) == 16 for r in rows)
         assert len({tuple(r['seeds']) for r in rows}) == 1                      # every prompt: the same seed list

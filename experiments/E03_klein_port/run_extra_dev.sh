@@ -8,9 +8,9 @@
 #    again (features cached, judge resumes) and rewrites the report + sheets. Logs "EXTRA_DEV_DONE" in driver.log.
 # Usage: GPUS="0 1 2 3" setsid nohup bash experiments/E03_klein_port/run_extra_dev.sh &
 set -u
-cd /DATA0/dahee/diversity_migration/mmdit_diversity
+cd /NHNHOME/workspace/mmdit-diversity
 E=experiments/E03_klein_port
-PY=/DATA0/dahee/diversity/.miniconda3/envs/diversity/bin/python
+PY=/NHNHOME/workspace/miniforge3/envs/flowlab/bin/python
 L=$E/logs
 GPUS="${GPUS:-0 1 2 3}"
 log() { echo "$(date '+%F %T') extra dev: $*" >> $L/driver.log; }

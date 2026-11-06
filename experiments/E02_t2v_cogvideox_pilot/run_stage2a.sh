@@ -6,13 +6,13 @@
 set -uo pipefail
 HERE=$(cd "$(dirname "$0")" && pwd)
 ROOT=$(cd "$HERE/../.." && pwd)
-PY=/DATA0/dahee/diversity/.miniconda3/envs/diversity/bin/python
+PY=/NHNHOME/workspace/miniforge3/envs/flowlab/bin/python
 J="bash $HERE/gpu_job.sh"
 GEN="$PY $ROOT/scripts/generate.py --model cogvideox --dataset vbench_tune --n-prompts 16 --samples 8 --gpu {gpu}"
 cd "$ROOT"
 echo "stage2a start $(date '+%F %T')"
 $J 20 basis $PY $HERE/fit_basis_resumable.py --name cogvideox_pilot_k256 \
-  --prompts /DATA0/dahee/data/datasets/vbench/calib_dimension_longer_32.txt --seeds 8 --gpu {gpu} &
+  --prompts /NHNHOME/workspace/data/vbench/calib_dimension_longer_32.txt --seeds 8 --gpu {gpu} &
 pb=$!
 sleep 100
 $J 13 gen_original $GEN --preset original &

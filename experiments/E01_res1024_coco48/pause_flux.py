@@ -12,7 +12,7 @@ import sys
 import time
 
 QDIR = Path(__file__).resolve().parents[2]/'outputs'/'res1024'/'queue'
-OTHER = Path('/DATA0/dahee/diversity_migration/value_diversity/results/generalize/sx_coco/queue')
+OTHER = Path('/NHNHOME/workspace/value_diversity/results/generalize/sx_coco/queue')
 
 
 def set_gpus(gpus):

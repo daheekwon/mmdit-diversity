@@ -12,7 +12,7 @@ import torch
 import torch.nn.functional as F
 from omegaconf import OmegaConf
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-from div import baselines, basis, config, data, metrics                     # noqa: E402
+from div import baselines, basis, config, data, metrics, models             # noqa: E402
 from div.method import Controller, frame_mean, head_delta                  # noqa: E402
 
 torch.manual_seed(0)
@@ -162,14 +162,18 @@ def test_parse_range_and_config():
 
 
 def test_defaults_one_lam():
-    """SD3.5 / FLUX defaults (2026-11-05): one lam on every edited block, pad V on the V-edit steps, and the SD3.5
-    all-block basis equal to the 6-23 basis on 6-23."""
+    """SD3.5 / FLUX defaults (2026-11-05): one lam on every edited block, pad V on the V-edit steps. The default bases
+    (E07, 2026-11-06): fitted on every block, on the calibration set, over the operating point's V-edit steps."""
+    calib = data.calibration_prompts(config.load('sd35').data)
     for model, lam, blocks, steps in (('sd35', 1.14, 'all', '0-11'), ('flux', 1.72, '19-37', '0-5')):
-        m = config.load(model, 'ours').method
+        cfg = config.load(model, 'ours')
+        m = cfg.method
         assert (m.v_edit.lam, m.v_edit.strength, m.v_edit.blocks, m.v_edit.steps) == (lam, None, blocks, steps)
         assert m.pad_v.blocks == 'all' and m.pad_v.steps == m.v_edit.steps
-    a, b = (torch.load(config.ROOT/'bases'/f'sd35_legacy_dev8{s}_k256.pt', weights_only=True) for s in ('', '_b0to23'))
-    assert b['blocks'] == list(range(24)) and all(torch.equal(a['Q'][k], b['Q'][k]) and a['unit'][k] == b['unit'][k] for k in a['Q'])
+        b = torch.load(config.resolve(m.v_edit.basis), weights_only=True)
+        nb = models.N_BLOCKS[model]
+        assert b['model'] == model and b['blocks'] == list(range(nb)) and b['prompts'] == calib
+        assert b['steps'] == config.parse_range(m.v_edit.steps, cfg.model.steps)
 
 
 class _Block(torch.nn.Module):
@@ -255,8 +259,9 @@ def test_coco_prompts():
 
 def test_tune_sets_are_disjoint_from_test():
     d = OmegaConf.load(config.ROOT/'configs'/'data.yaml')
+    video = Path(d.vbench.prompts).exists()                  # VBench prompts are not on every server (2026-11-06)
     seeds = {k: {s for r in data.prompts(d, k) for s in r['seeds']} for k in data.DATASETS
-             if data.base(d, k) != 'split'}           # the value_diversity splits keep their legacy seed lists
+             if data.base(d, k) != 'split' and (video or data.base(d, k) != 'vbench')}           # the fixed splits keep their own seed lists
     assert all(not (seeds[a] & seeds[b]) for a in seeds for b in seeds if a < b)
     tune = data.prompts(d, 'imagenet_tune')
     assert len(tune) == 50 and {r['id'] for r in tune} == {r['id'] for r in data.prompts(d, 'imagenet', n_prompts=50)}
@@ -264,7 +269,7 @@ def test_tune_sets_are_disjoint_from_test():
     coco_tune = data.prompts(d, 'coco_tune')
     assert len(coco_tune) == 50 and not ({r['image_id'] for r in coco_tune} & coco_test)
     assert data.base(d, 'coco_tune') == 'coco' and len(data.real_images(d, 'imagenet_tune')) == 10000
-    c48 = {r['image_id'] for r in data.prompts(d, 'coco48')}     # the split where the operating lam was chosen (E01)
+    c48 = {r['image_id'] for r in data.prompts(d, 'coco48')}     # a tuning split: kept out of the test and tune images
     assert not (c48 & coco_test) and not (c48 & {r['image_id'] for r in coco_tune})
 
 

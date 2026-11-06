@@ -5,7 +5,7 @@
 set -uo pipefail
 HERE=$(cd "$(dirname "$0")" && pwd)
 ROOT=$(cd "$HERE/../.." && pwd)
-PY=/DATA0/dahee/diversity/.miniconda3/envs/diversity/bin/python
+PY=/NHNHOME/workspace/miniforge3/envs/flowlab/bin/python
 OUT=$ROOT/outputs/cogvideox/vbench_tune
 cd "$ROOT"
 echo "motion start $(date '+%F %T')"

@@ -23,8 +23,8 @@ T2V 시험용으로 CogVideoX-2B도 들어 있습니다(`configs/cogvideox.yaml`
 - 범위 표기는 `all`, `6-23`, `0,2,5-7` 중 하나입니다. block 번호는 SD3.5 0–23, FLUX double 0–18·single 19–56, CogVideoX-2B 0–29, FLUX.2-klein double 0–4·single 5–24입니다.
 - **SD3.5·FLUX의 기본 해상도는 1024입니다(사용자 11-05).** `value_diversity/`의 모든 방법 비교와 이전 기저는 512에서 만들었습니다. 512로 돌리려면 `model.resolution=512`를 붙입니다.
 - 방법 기본값은 11-05에 정한 설정입니다(`value_diversity/results/generalize/`의 결과, 512에서 정함). pad V는 V편집과 같은 step에 들어갑니다.
-  - SD3.5: V편집 λ1.14, 전 block(0–23), step 0–11 + pad V ¼, 전 block, step 0–11. 기저는 `bases/sd35_legacy_dev8_b0to23_k256.pt`입니다.
-  - FLUX: V편집 λ1.72, block 19–37, step 0–5 + pad V ¼, 전 block, step 0–5. 기저는 `bases/flux_legacy_dev8_k256.pt`입니다. 이전 실행(d0.5)이 실제로 쓴 λ는 1.7196이라, 기본값 λ1.72와 픽셀까지 같지는 않습니다.
+  - SD3.5: V편집 λ1.14, 전 block(0–23), step 0–11 + pad V ¼, 전 block, step 0–11. 기저는 `bases/sd35_calib32_s0-11_k256.pt`입니다(E07, 11-06. λ1.14에서 image V 상대 변화는 이전 기저 0.105, 새 기저 0.107).
+  - FLUX: V편집 λ1.72, block 19–37, step 0–5 + pad V ¼, 전 block, step 0–5. 기저는 `bases/flux_calib32_s0-5_k256.pt`입니다(E07, 11-06. λ1.72에서 block 19–37의 상대 변화는 이전 0.50, 새 기저 0.516).
   - DAVE 기준 세팅: SD3.5 α0.5(block 6, step 0–3), FLUX α0.2(block 30, step 0–5).
 - 비교 규칙(11-04 정정): DAVE 기준 세팅은 DAVE를 돌리는 설정일 뿐입니다. 우리 방법의 강도를 DAVE의 Vendi에 맞추지 않습니다. 우리 방법은 자기 운영점에서 DAVE 기준 세팅과 prompt 단위로 짝지어 비교하고, Vendi와 비용 지표를 나란히 보고합니다(`scripts/compare.py`). 같은 Vendi에서의 보간(`analysis.interpolate`)은 우리 변형끼리 비교할 때만 쓰며, 공통 범위의 여러 수준이나 운영점의 Vendi를 기준으로 합니다.
 
@@ -39,7 +39,7 @@ div/       config.py        설정 로드, CLI override, 범위 파싱
            baselines.py     DAVE, CADS
            basis.py         V편집 기저: 보정 모먼트 수집, 대비 PCA, 강도 단위, 반분 선택도 검증, 이전 기저 변환
            data.py          ImageNet 1000 클래스 / COCO 500 prompt, tune 세트(imagenet_tune, coco_tune), seed 규칙, 실이미지 집합
-           splits.py        value_diversity/의 prompt split(dev, dev8, ho3, coco48)과 그 seed
+           splits.py        고정 prompt split(dev, dev8, ho3, coco48)과 그 seed (11-06 새로 만듦)
            features.py      Inception, CLIP, DINOv2, PickScore 특징 (폴더별 캐시)
            metrics.py       이미지 지표 계산
            video_metrics.py 영상 지표 (프레임 일관성, 깜빡임, 판독기, 프레임별 DINO·MUSIQ)
@@ -60,44 +60,42 @@ env/       Python 환경 명세 (아래 '환경' 절)
 
 ## 환경
 
-모든 결과는 이 서버의 conda 환경 `/DATA0/dahee/diversity/.miniconda3/envs/diversity`에서 만들었습니다. 이 환경은 Python 3.11.15이고, CUDA 12.8용 PyTorch 2.11.0을 씁니다. `env/`의 파일은 이 환경을 다른 서버에서 다시 만들기 위한 것입니다(2026-11-06 기록).
+이전 결과는 이전 서버의 conda 환경 `/DATA0/dahee/diversity/.miniconda3/envs/diversity`(Python 3.11.15, CUDA 12.8용 PyTorch 2.11.0)에서 만들었습니다. `env/`는 그 환경을 다시 만드는 명세입니다(2026-11-06 기록).
+이 서버(컨테이너)에는 이 명세로 `/NHNHOME/workspace/miniforge3/envs/mmdit-diversity`를 만들었습니다(11-06). 명령 전에 `source env.sh`를 실행합니다(이 환경, `HF_HOME=/NHNHOME/workspace/hf_cache`).
 
 | 파일 | 내용 | 용도 |
 |---|---|---|
 | `env/environment.yml` | conda의 Python 3.11.15, ffmpeg 6.1.2, 그리고 `requirements-lock.txt` | 새 서버에 같은 환경 만들기 (권장) |
-| `env/requirements-lock.txt` | 코드가 쓰는 패키지와 그 의존 패키지 87개. 모두 위 환경의 버전으로 고정 | conda 없이 pip만 쓸 때 |
-| `env/requirements.txt` | 코드가 직접 쓰는 패키지 23개 | 어떤 패키지가 필요한지 볼 때 |
-| `env/environment-lock.yml` | 위 환경 전체의 `conda env export` 결과. 다른 프로젝트의 패키지도 들어 있고, linux-64 빌드로 고정 | 공유 환경을 그대로 복제할 때 |
+| `env/requirements-lock.txt` | 코드가 쓰는 패키지와 그 의존 패키지 90개. 모두 이전 환경의 버전으로 고정 | conda 없이 pip만 쓸 때 |
+| `env/requirements.txt` | 코드가 직접 쓰는 패키지 25개 | 어떤 패키지가 필요한지 볼 때 |
+| `env/environment-lock.yml` | 이전 환경 전체의 `conda env export` 결과. 다른 프로젝트의 패키지도 들어 있고, linux-64 빌드로 고정 | 공유 환경을 그대로 복제할 때 |
+| `env/eval_models.json` | 이 서버에서 내려받은 평가 모델의 리비전과 sha256 | 같은 평가 모델인지 확인할 때 |
 
 저장소 맨 위 폴더에서 다음을 실행합니다.
 
 ```bash
-conda env create -f env/environment.yml
-conda activate mmdit-diversity
+conda env create -f env/environment.yml      # 이 서버: CONDA_PLUGINS_USE_SHARDED_REPODATA=false $MINIFORGE/bin/python -m conda env create -f env/environment.yml -y
+source env.sh
 python -m pytest -q tests/test_video_metrics.py
 ```
 
-- conda가 `sqlite3.OperationalError: database is locked`로 멈추면, 앞에 `CONDA_PLUGINS_USE_SHARDED_REPODATA=false`를 붙여 다시 실행합니다. 이 서버에서는 이렇게 해야 conda가 동작했습니다(11-06).
-- 확인한 범위(11-06):
-  - `requirements-lock.txt`: `pip install --dry-run`이 정확히 이 87개 버전으로 풀렸습니다.
-  - `environment.yml`, `environment-lock.yml`의 conda 부분: `--dry-run`이 오류 없이 풀렸습니다.
-  - 새 환경에 실제로 설치해 보지는 않았습니다.
+- conda가 `sqlite3.OperationalError: database is locked`로 멈추면, 앞에 `CONDA_PLUGINS_USE_SHARDED_REPODATA=false`를 붙여 다시 실행합니다.
+- 이 서버의 miniforge는 설치 뒤 옮겨져서 `conda` 스크립트의 shebang이 없는 경로를 가리킵니다. `$MINIFORGE/bin/python -m conda`로 실행합니다(`env.sh`).
+- 확인한 범위(11-06, 이 서버): 설치된 패키지 버전이 `requirements-lock.txt`와 모두 같습니다. B200(sm_100)에서 GPU 연산이 됩니다.
+- 11-06 추가: `openai-clip==1.0.1`, `ftfy==6.3.1`, `wcwidth==0.8.1`. `image-reward`가 선언 없이 `clip`을 import합니다. 버전은 `environment-lock.yml`(이전 환경)의 것입니다.
 
-환경 밖에서 따로 준비해야 하는 것:
+환경 밖에서 따로 준비하는 것:
 
-- **모델 가중치:** SD3.5 Medium과 FLUX.1-dev는 Hugging Face에서 접근 승인이 필요한 모델입니다. 승인을 받은 계정으로 로그인해야 합니다. 평가 모델(DINOv2, CLIP, PickScore, ImageReward)은 처음 쓸 때 내려받습니다.
-- **git에 없는 파일:** 이 서버에서 복사해야 합니다.
-  - `bases/*.pt` (V편집 기저)
-  - `weights/` (FID용 Inception, aesthetic predictor)
-- **데이터 경로:** `configs/data.yaml`의 ImageNet·COCO·VBench 경로는 이 서버의 절대 경로입니다. 다른 서버에서는 고쳐야 합니다.
-- **옆 폴더 `value_diversity/`:**
-  - `div/splits.py`는 상위 폴더들에서 `value_diversity/`를 찾습니다. 없으면 `import div.splits`가 `StopIteration`으로 실패합니다. 그러면 `dev`, `dev8`, `ho3`, `coco48` split과 `tests/test_klein.py`를 쓸 수 없습니다.
-  - 이전 기저 변환과 `tests/parity.py`에는 `value_diversity/results`도 필요합니다.
-  - 기저 `.pt`와 `value_diversity/`가 없는 새 클론에서는 `tests/test_method.py`의 테스트 2개가 실패하고 27개가 통과합니다(11-06 확인).
+- **생성 모델:** SD3.5 Medium, FLUX.1-dev, FLUX.2-klein은 이 서버의 HF 캐시에 설정과 같은 리비전으로 있습니다. CogVideoX-2B는 없습니다.
+- **평가 모델:** `python scripts/download_eval_models.py`가 CLIP B/32·L/14, DINOv2-small, PickScore, ImageReward, LPIPS AlexNet을 받고, `weights/`에 FID용 Inception과 aesthetic predictor를 받습니다. 받은 판은 `env/eval_models.json`에 적힙니다.
+- **V편집 기저 `bases/*.pt`:** 이 서버에서 새로 적합합니다(`experiments/E07_calib32_bases/run.sh`). 이전 기저(`*_legacy_dev8*`, `klein_dev8*`)는 없습니다. json 보고서만 git에 남아 있습니다.
+- **데이터:** `configs/data.yaml`의 ImageNet·COCO·VBench 경로는 `/NHNHOME/workspace/data/` 아래입니다.
+- **split:** `dev`, `dev8`, `ho3`는 `div/splits.py`, 보정 세트는 `splits/calib32.txt`에 있습니다(11-06 새로 만듦. `value_diversity/`의 이전 prompt와는 다름). `coco48`은 COCO 테스트·tune 파일이 생긴 뒤 `python scripts/make_coco48.py --captions <captions_val2017.json>`로 만듭니다.
+- **옆 폴더 `value_diversity/`:** 이 서버에는 없습니다. `tests/parity.py`와 이전 기저 변환(`fit_basis.py --legacy`), E06의 평가 스크립트에만 필요합니다.
 - **옆 폴더 `diversity_anal/`:**
   - 영상 MUSIQ는 `diversity_anal/vendor/iqa_runtime`의 pyiqa 0.1.13과 `diversity_anal/model_cache/torch_eval`의 가중치를 씁니다.
   - 영상 판독기는 `diversity_anal/scripts/judge_flux_breakage.py`(Qwen3-VL)를 씁니다.
-  - 이 경로는 `div/video_metrics.py`에 절대 경로로 적혀 있습니다.
+  - 경로는 `div/video_metrics.py`의 `ANAL`입니다(이 서버: `/NHNHOME/workspace/diversity_anal/div-attn`. 이 폴더에는 `vendor/iqa_runtime`이 없습니다).
 
 ## 사용법
 
@@ -111,22 +109,24 @@ python scripts/generate.py --model sd35 --dataset coco --preset dave --n-prompts
 python scripts/evaluate.py outputs/sd35/imagenet/ours outputs/sd35/imagenet/original
 python scripts/compare.py outputs/sd35/imagenet/original outputs/sd35/imagenet/ours outputs/sd35/imagenet/dave
 
-# V편집 기저 적합 (보정 prompt 파일은 아직 미정)
-python scripts/fit_basis.py --model sd35 --name sd35_calib_k256 --prompts <prompt 파일>   # 기본: 전 block 적합
+# V편집 기저 적합 (보정 prompt: data.calibration = splits/calib32.txt; 실제 명령은 experiments/E07_calib32_bases/run.sh)
+python scripts/fit_basis.py --model sd35 --name sd35_calib32 --steps 0-11 0-3   # 기본: 전 block 적합, step 세트마다 기저 하나
 ```
 
 - preset은 `original`, `ours`, `ours_head`, `v_edit`, `pad_v`, `dave`, `cads`입니다. 그 뒤에 `성분.필드=값`을 여러 개 붙일 수 있습니다.
 - 이미 있는 이미지는 건너뜁니다. 그래서 중단된 실행을 다시 시작할 수 있고, `--n-prompts`로 만든 소규모 이미지도 전체 실행에서 그대로 재사용됩니다(같은 prompt는 같은 seed).
 - `--shard i/n`으로 prompt를 여러 프로세스에 나눌 수 있습니다.
-- 데이터셋은 test용 `imagenet`, `coco`와 tune용 `imagenet_tune`(50 클래스, test와 다른 seed), `coco_tune`(test 500장과 COCO 48 밖의 val2017 이미지 50장)입니다. tune 세트의 FID·PRDC는 기반 데이터셋의 실이미지를 씁니다.
-- `dev`, `dev8`, `ho3`, `coco48`은 `value_diversity/`의 split을 그 seed 목록 그대로 씁니다(`div/splits.py`). 실이미지 집합은 없습니다. `dev8`(dev 일반 8개 × seed 40000–40015)은 이전 기저들의 보정 prompt입니다.
+- 데이터셋은 test용 `imagenet`, `coco`와 tune용 `imagenet_tune`(50 클래스, test와 다른 seed), `coco_tune`(test 500장 밖의 val2017 이미지 50장)입니다. tune 세트의 FID·PRDC는 기반 데이터셋의 실이미지를 씁니다.
+- `dev`, `dev8`, `ho3`, `coco48`은 고정 split이고, 각자 seed 목록을 씁니다(`div/splits.py`). 실이미지 집합은 없습니다. 11-06에 새로 만들었습니다. `value_diversity/`의 이전 split과는 prompt가 다릅니다.
+  - `coco48`은 `splits/coco48.json`입니다. `scripts/make_coco48.py`가 COCO 테스트 500장, tune 50장과 겹치지 않는 val2017 사진 48장에서 캡션을 하나씩 골랐습니다.
+  - V편집 보정 세트(`splits/calib32.txt`, 32개)는 dev·ho3와 겹치지 않습니다.
 - 같은 폴더 이름에 다른 설정을 넣으면 오류가 납니다.
 
 ## 평가
 
 규모는 DAVE 논문(arXiv 2606.06813)을 따릅니다. ImageNet은 1,000 클래스 × 10장, 실이미지 10K장(클래스당 10장)입니다. COCO는 val2017 이미지 500장에서 캡션을 하나씩 고른 500개 × 10장(COCO 캡션 형식), 실이미지 5K장(val2017 전체)입니다.
-  - 파일은 `captions_val2017_img500_cap500_no_coco48.json`입니다. 원본 `captions_val2017_img500_cap500.json`에서 COCO 48 split(λ를 정한 prompt)과 사진이 같은 5개를 같은 행에서 다른 사진으로 바꿨습니다. 나머지 495개는 원본과 같습니다.
-  - tune 파일 `captions_val2017_tune50_no_coco48.json`도 같은 방식으로 1개를 바꿨습니다. 바꾼 목록은 `experiments/E01_tune_operating_point/coco_replaced.json`에 있습니다.
+  - 파일은 원본 `captions_val2017_img500_cap500.json`과 tune `captions_val2017_tune50.json`입니다(사용자 11-06).
+  - 이전 결과는 `_no_coco48` 판을 썼습니다. 이전 coco48과 사진이 같은 5개(tune은 1개)를 다른 사진으로 바꾼 판입니다(`experiments/E01_tune_operating_point/coco_replaced.json`). coco48을 새로 뽑았으므로 이 교체는 더 쓰지 않습니다.
 
 | 단위 | 지표 |
 |---|---|
@@ -135,7 +135,8 @@ python scripts/fit_basis.py --model sd35 --name sd35_calib_k256 --prompts <promp
 | 실행 전체 | FID, precision, recall, density, coverage (Inception pool3, k=5; 모든 prompt가 완료됐을 때만) |
 
 - 실이미지는 짧은 변을 생성 해상도에 맞추고 가운데를 잘라 생성 이미지와 크기를 맞춥니다. 1024에서는 ImageNet·COCO 실이미지 대부분이 이보다 작아서 키우게 됩니다.
-- ImageNet prompt는 `a photo of a {devkit meta.mat의 첫 동의어}`입니다. 이름이 겹치는 클래스가 두 쌍 있습니다(crane, maillot).
+- ImageNet prompt는 `a photo of a {클래스의 첫 동의어}`입니다. 이름이 겹치는 클래스가 두 쌍 있습니다(crane, maillot).
+  - 이 서버에는 devkit이 없습니다. 그래서 클래스 이름은 HF imagenet-1k의 `classes.py`에서, 실이미지는 `val/<wnid>/` 폴더에서 읽습니다. HF 목록은 두 번째 crane을 `crane2`로 바꿔 두었으므로 devkit 이름 `crane`으로 되돌립니다(`data.HF_RENAMED`).
 - seed 규칙은 `seed_base + 100·i + j`이며 모든 방법에서 같습니다. 그래서 비교는 이미지 단위로 짝지어집니다.
 - FID와 PRDC 특징은 clean-fid의 'clean' 방식(TF Inception 가중치 `weights/inception-2015-12-05.pt`, PIL bicubic 299)으로 GPU 하나에서 뽑습니다. clean-fid 자체 함수와의 차이는 GPU 연산 잡음 수준입니다(상대 0.05%, 같은 입력을 두 번 넣어도 이만큼 다릅니다).
 - ImageReward 패키지 1.5는 transformers 4.40 이전용입니다. 그래서 `metrics.image_reward`가 옮겨진 함수 세 개를 원래 자리에 되돌린 뒤 불러옵니다. 이렇게 낸 점수는 transformers 4.36에서 낸 점수와 같습니다(이미지 18장 × prompt 3개, 차이 0). 가중치는 `~/.cache/ImageReward`에 있습니다.
@@ -143,7 +144,7 @@ python scripts/fit_basis.py --model sd35 --name sd35_calib_k256 --prompts <promp
 
 ## 이전 결과와의 관계
 
-- `bases/*_legacy_dev8*_k256.pt`는 `value_diversity/`의 개발 prompt 8개로 적합한 기저입니다. 이전 결과가 모두 이 기저를 썼습니다. 지금 기본값도 이 기저를 씁니다. 다른 보정 prompt로 새 기저를 적합하는 일은 아직 하지 않았습니다.
+- `bases/*_legacy_dev8*_k256.pt`는 `value_diversity/`의 개발 prompt 8개로 적합한 기저입니다. 이전 결과가 모두 이 기저를 썼습니다. 이 서버에는 `.pt`가 없고 json 보고서만 있습니다. 지금 기본값은 E07의 새 기저(`*_calib32_*`)입니다.
   - `sd35_legacy_dev8_k256.pt`: SD3.5 block 6–23. 11-03 운영점과 픽셀 대조에 씁니다.
   - `sd35_legacy_dev8_b0to23_k256.pt`: SD3.5 block 0–23. 전 block 실행(generalize/allblock)이 쓴 기저이고, 6–23 부분은 위 파일과 같습니다. `fit_basis.py --model sd35 --legacy --blocks all`로 만듭니다.
   - `flux_legacy_dev8_k256.pt`: FLUX block 19–56.
@@ -153,5 +154,4 @@ python scripts/fit_basis.py --model sd35 --name sd35_calib_k256 --prompts <promp
 
 ## 미정
 
-- V편집 기저의 보정 prompt (`data.calibration.prompts`)
 - head 조작의 채택 여부
