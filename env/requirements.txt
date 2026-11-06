@@ -1,0 +1,39 @@
+# Packages that mmdit_diversity imports, pinned to the versions of the env that made every result:
+#   /DATA0/dahee/diversity/.miniconda3/envs/diversity (Python 3.11.15, conda 26.3.2), recorded 2026-11-06.
+# Direct dependencies only. For an exact copy install requirements-lock.txt (see the README section "환경").
+# The full env (shared with other projects) is environment-lock.yml.
+--extra-index-url https://download.pytorch.org/whl/cu128
+
+# PyTorch, CUDA 12.8 wheels
+torch==2.11.0+cu128
+torchvision==0.26.0+cu128
+
+# Diffusion pipelines and text encoders (SD3.5, FLUX.1, FLUX.2-klein, CogVideoX)
+diffusers==0.38.0
+transformers==4.57.3
+accelerate==1.14.0
+safetensors==0.8.0
+huggingface-hub==0.36.2
+tokenizers==0.22.2
+sentencepiece==0.2.1
+protobuf==7.35.1
+
+# Config, arrays, tables, images, video files
+omegaconf==2.4.0.dev11
+numpy==2.4.6
+scipy==1.17.1
+pandas==3.0.3
+pillow==11.3.0
+imageio==2.37.3
+imageio-ffmpeg==0.6.0
+
+# Metrics
+clean-fid==0.1.35
+lpips==0.1.4
+image-reward==1.5
+# div/metrics.py image_reward() imports pkg_resources: keep setuptools below 81
+setuptools==70.2.0
+packaging==26.0
+
+# Tests
+pytest==9.0.3

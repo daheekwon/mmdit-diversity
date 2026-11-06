@@ -1,0 +1,13 @@
+# Env for mmdit_diversity: Python and ffmpeg from conda, every pip package pinned (requirements-lock.txt).
+#   conda env create -f env/environment.yml        (run in the repository root)
+# The channel order is the order of the env that made the results (ffmpeg 6.1.2 comes from conda-forge).
+name: mmdit-diversity
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - python=3.11.15
+  - pip
+  - ffmpeg=6.1.2
+  - pip:
+      - -r requirements-lock.txt

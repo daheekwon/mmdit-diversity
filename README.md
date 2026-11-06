@@ -55,11 +55,51 @@ tests/     test_method.py (CPU, 수식 대조), test_klein.py (CPU, klein 어댑
            parity.py (GPU, SD3.5·FLUX: 이전 이미지와 픽셀 비교)
            parity_klein.py, parity_cogvideox.py (GPU, diffusers 파이프라인과 픽셀 비교)
 outputs/   생성 이미지, 특징, 지표 (git 제외)
+env/       Python 환경 명세 (아래 '환경' 절)
 ```
 
-## 사용법
+## 환경
 
-환경은 `/DATA0/dahee/diversity/.miniconda3/envs/diversity`입니다.
+모든 결과는 이 서버의 conda 환경 `/DATA0/dahee/diversity/.miniconda3/envs/diversity`에서 만들었습니다. 이 환경은 Python 3.11.15이고, CUDA 12.8용 PyTorch 2.11.0을 씁니다. `env/`의 파일은 이 환경을 다른 서버에서 다시 만들기 위한 것입니다(2026-11-06 기록).
+
+| 파일 | 내용 | 용도 |
+|---|---|---|
+| `env/environment.yml` | conda의 Python 3.11.15, ffmpeg 6.1.2, 그리고 `requirements-lock.txt` | 새 서버에 같은 환경 만들기 (권장) |
+| `env/requirements-lock.txt` | 코드가 쓰는 패키지와 그 의존 패키지 87개. 모두 위 환경의 버전으로 고정 | conda 없이 pip만 쓸 때 |
+| `env/requirements.txt` | 코드가 직접 쓰는 패키지 23개 | 어떤 패키지가 필요한지 볼 때 |
+| `env/environment-lock.yml` | 위 환경 전체의 `conda env export` 결과. 다른 프로젝트의 패키지도 들어 있고, linux-64 빌드로 고정 | 공유 환경을 그대로 복제할 때 |
+
+저장소 맨 위 폴더에서 다음을 실행합니다.
+
+```bash
+conda env create -f env/environment.yml
+conda activate mmdit-diversity
+python -m pytest -q tests/test_video_metrics.py
+```
+
+- conda가 `sqlite3.OperationalError: database is locked`로 멈추면, 앞에 `CONDA_PLUGINS_USE_SHARDED_REPODATA=false`를 붙여 다시 실행합니다. 이 서버에서는 이렇게 해야 conda가 동작했습니다(11-06).
+- 확인한 범위(11-06):
+  - `requirements-lock.txt`: `pip install --dry-run`이 정확히 이 87개 버전으로 풀렸습니다.
+  - `environment.yml`, `environment-lock.yml`의 conda 부분: `--dry-run`이 오류 없이 풀렸습니다.
+  - 새 환경에 실제로 설치해 보지는 않았습니다.
+
+환경 밖에서 따로 준비해야 하는 것:
+
+- **모델 가중치:** SD3.5 Medium과 FLUX.1-dev는 Hugging Face에서 접근 승인이 필요한 모델입니다. 승인을 받은 계정으로 로그인해야 합니다. 평가 모델(DINOv2, CLIP, PickScore, ImageReward)은 처음 쓸 때 내려받습니다.
+- **git에 없는 파일:** 이 서버에서 복사해야 합니다.
+  - `bases/*.pt` (V편집 기저)
+  - `weights/` (FID용 Inception, aesthetic predictor)
+- **데이터 경로:** `configs/data.yaml`의 ImageNet·COCO·VBench 경로는 이 서버의 절대 경로입니다. 다른 서버에서는 고쳐야 합니다.
+- **옆 폴더 `value_diversity/`:**
+  - `div/splits.py`는 상위 폴더들에서 `value_diversity/`를 찾습니다. 없으면 `import div.splits`가 `StopIteration`으로 실패합니다. 그러면 `dev`, `dev8`, `ho3`, `coco48` split과 `tests/test_klein.py`를 쓸 수 없습니다.
+  - 이전 기저 변환과 `tests/parity.py`에는 `value_diversity/results`도 필요합니다.
+  - 기저 `.pt`와 `value_diversity/`가 없는 새 클론에서는 `tests/test_method.py`의 테스트 2개가 실패하고 27개가 통과합니다(11-06 확인).
+- **옆 폴더 `diversity_anal/`:**
+  - 영상 MUSIQ는 `diversity_anal/vendor/iqa_runtime`의 pyiqa 0.1.13과 `diversity_anal/model_cache/torch_eval`의 가중치를 씁니다.
+  - 영상 판독기는 `diversity_anal/scripts/judge_flux_breakage.py`(Qwen3-VL)를 씁니다.
+  - 이 경로는 `div/video_metrics.py`에 절대 경로로 적혀 있습니다.
+
+## 사용법
 
 ```bash
 # 생성: 출력 폴더는 outputs/<model>/<dataset>/<preset__overrides>/
