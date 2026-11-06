@@ -1,0 +1,43 @@
+pid,mode,seed,real,kind,note
+ho3_animal_02,q_l1.7@0-24~0-10+pad_v0.25~0-10,9,1,style,flat green streak background
+ho3_animal_02,q_l1.7@0-24~0-10+pad_v0.25~0-10,1,1,style,oil painting
+rare_ho3_sextant,q_l1.7@0-24~0-10+pad_v0.25~0-10,6,1,style,painting
+rare_ho3_narwhal,q_l1.7@0-24~0-10+pad_v0.25~0-10,1,1,style,oil painting
+rare_ho3_sextant,q_l1.7@0-24~0-10+pad_v0.25~0-10,5,1,style,painting
+rare_ho3_theodolite,q_l1.7@0-24~0-10+pad_v0.25~0-10,1,1,style,oil painting
+rare_ho3_okapi,q_l1.7@0-24~0-10+pad_v0.25~0-10,4,1,style,blurry painting
+rare_ho3_theodolite,q_l1.7@0-24~0-10+pad_v0.25~0-10,8,1,style,painting
+rare_ho3_okapi,q_l1.7@0-24~0-10+pad_v0.25~0-10,1,1,style,oil painting
+rare_ho3_okapi,q_l1.7@0-24~0-10+pad_v0.25~0-10,7,1,style,oil painting
+ho3_animal_02,q_l1.7@0-24~0-10+pad_v0.25~0-10,7,1,style,oil painting
+rare_ho3_narwhal,q_l1.7@0-24~0-10+pad_v0.25~0-10,4,1,style,painting
+ho3_relation_01,q_l1.7@0-24~0-10+pad_v0.25~0-10,1,1,style,oil painting
+ho3_relation_02,q_l1.7@0-24~0-10+pad_v0.25~0-10,1,1,style,oil painting
+ho3_object_02,q_l1.7@0-24~0-10+pad_v0.25~0-10,1,1,style,oil painting
+ho3_animal_01,q_l1.7@0-24~0-10+pad_v0.25~0-10,1,1,style,oil painting
+ho3_animal_02,q_l1.7@0-24~0-10+pad_v0.25~0-10,13,1,style,oil painting
+rare_ho3_sextant,q_l1.7@0-24~0-10+pad_v0.25~0-10,1,1,style,oil painting
+ho3_animal_00,q_l1.7@0-24~0-10+pad_v0.25~0-10,9,1,style,flat green streak background
+ho3_animal_01,q_l1.7@0-24~0-10+pad_v0.25~0-10,4,1,style,painting
+rare_ho3_okapi,q_l1.7@0-24~0-10+pad_v0.25~0-10,12,1,bar,green gradient band bottom
+ho3_animal_02,dave_a0.2~0-10,1,1,style,illustration
+ho3_relation_01,dave_a0.2~0-10,12,1,deform,man floating on fence
+ho3_animal_02,dave_a0.2~0-10,8,1,style,illustration
+ho3_scene_00,dave_a0.2~0-10,1,1,style,illustration
+rare_ho3_narwhal,dave_a0.2~0-10,15,1,style,illustration
+ho3_scene_00,dave_a0.2~0-10,8,1,style,illustration
+ho3_scene_02,dave_a0.2~0-10,15,1,style,illustration
+ho3_scene_00,dave_a0.2~0-10,15,1,style,illustration
+rare_ho3_okapi,original,13,0,,photo (zebra-like; mismatch only)
+rare_ho3_narwhal,original,4,0,,photo
+rare_ho3_narwhal,q_l1.3@0-24~0-10+pad_v0.25~0-10,2,0,,photo
+ho3_animal_02,q_l1.3@0-24~0-10+pad_v0.25~0-10,1,1,style,oil painting
+rare_ho3_narwhal,q_l1.3@0-24~0-10+pad_v0.25~0-10,15,1,bar,dark band step at edges
+ho3_animal_02,q_l1.5@0-24~0-10+pad_v0.25~0-10,7,1,style,painting
+ho3_object_02,q_l1.5@0-24~0-10+pad_v0.25~0-10,1,1,style,painting
+ho3_animal_02,q_l1.5@0-24~0-10+pad_v0.25~0-10,1,1,style,oil painting
+rare_ho3_narwhal,q_l1.5@0-24~0-10+pad_v0.25~0-10,10,1,style,rendered/painted look
+ho3_scene_01,q_l1.5@0-24~0-10+pad_v0.25~0-10,1,1,style,painting
+rare_ho3_narwhal,q_l1.5@0-24~0-10+pad_v0.25~0-10,4,0,,photo
+rare_ho3_narwhal,q_l1.5@0-24~0-10+pad_v0.25~0-10,15,1,bar,dark band step at edges
+ho3_animal_00,q_l1.5@0-24~0-10+pad_v0.25~0-10,15,0,,photo

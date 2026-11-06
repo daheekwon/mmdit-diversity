@@ -1,0 +1,290 @@
+{
+ "model": "cogvideox",
+ "k": 256,
+ "beta": 1.0,
+ "blocks": [
+  0,
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9,
+  10,
+  11,
+  12,
+  13,
+  14,
+  15,
+  16,
+  17,
+  18,
+  19,
+  20,
+  21,
+  22,
+  23,
+  24,
+  25,
+  26,
+  27,
+  28,
+  29
+ ],
+ "unit": {
+  "0": 0.8538861400126178,
+  "1": 0.8335763074148229,
+  "2": 0.7014288922730282,
+  "3": 0.6980979988123832,
+  "4": 0.859505355054924,
+  "5": 0.753849373343587,
+  "6": 0.7529072769614796,
+  "7": 0.7548967970033524,
+  "8": 0.7604791726467981,
+  "9": 0.7090020332704051,
+  "10": 0.6907839976266709,
+  "11": 0.6833304338758999,
+  "12": 0.7525520661588642,
+  "13": 0.7299830888399276,
+  "14": 0.6969173256683301,
+  "15": 0.7036759922485866,
+  "16": 0.6796319018430228,
+  "17": 0.7036645237528856,
+  "18": 0.713174058687185,
+  "19": 0.7274787507863689,
+  "20": 0.6789211261334386,
+  "21": 0.7234843933868793,
+  "22": 0.6086823698641728,
+  "23": 0.6543387724804155,
+  "24": 0.6366427901160172,
+  "25": 0.6322038421790193,
+  "26": 0.6711246700373765,
+  "27": 0.6727281840336988,
+  "28": 0.663164123963263,
+  "29": 0.659325810492802
+ },
+ "check": {
+  "0": {
+   "selectivity_ab": 2.061913960263985,
+   "selectivity_ba": 2.009114767441149,
+   "energy_share": 0.7309540710126006
+  },
+  "1": {
+   "selectivity_ab": 3.0080292519698433,
+   "selectivity_ba": 3.0421144633920245,
+   "energy_share": 0.6952927904726249
+  },
+  "2": {
+   "selectivity_ab": 2.9845123438275736,
+   "selectivity_ba": 3.0689501583809746,
+   "energy_share": 0.49296231868312856
+  },
+  "3": {
+   "selectivity_ab": 3.5723932691668243,
+   "selectivity_ba": 3.694309951612685,
+   "energy_share": 0.48902579950608
+  },
+  "4": {
+   "selectivity_ab": 2.7262499637327555,
+   "selectivity_ba": 2.733933585842067,
+   "energy_share": 0.7391979547995591
+  },
+  "5": {
+   "selectivity_ab": 2.866295170969479,
+   "selectivity_ba": 2.9665620589066575,
+   "energy_share": 0.5696748288252017
+  },
+  "6": {
+   "selectivity_ab": 2.387022369179384,
+   "selectivity_ba": 2.458456452553479,
+   "energy_share": 0.5683900121013818
+  },
+  "7": {
+   "selectivity_ab": 2.675575799663867,
+   "selectivity_ba": 2.826517315812223,
+   "energy_share": 0.5707405502617698
+  },
+  "8": {
+   "selectivity_ab": 2.560864115224299,
+   "selectivity_ba": 2.6639577376595907,
+   "energy_share": 0.5794623830919652
+  },
+  "9": {
+   "selectivity_ab": 2.5935346244521,
+   "selectivity_ba": 2.6809766061937843,
+   "energy_share": 0.5035438614904897
+  },
+  "10": {
+   "selectivity_ab": 2.3815566310374443,
+   "selectivity_ba": 2.5210918367828747,
+   "energy_share": 0.4780650387441946
+  },
+  "11": {
+   "selectivity_ab": 2.702184753176716,
+   "selectivity_ba": 2.846890974227885,
+   "energy_share": 0.46725242053623295
+  },
+  "12": {
+   "selectivity_ab": 2.4603966461906643,
+   "selectivity_ba": 2.4911501212594667,
+   "energy_share": 0.5665823298456545
+  },
+  "13": {
+   "selectivity_ab": 2.339145321387481,
+   "selectivity_ba": 2.404696835694507,
+   "energy_share": 0.533210593836123
+  },
+  "14": {
+   "selectivity_ab": 2.2150478003001166,
+   "selectivity_ba": 2.3138929102639705,
+   "energy_share": 0.4862151782837387
+  },
+  "15": {
+   "selectivity_ab": 2.0981786023888502,
+   "selectivity_ba": 2.2089769107928925,
+   "energy_share": 0.49557298402042366
+  },
+  "16": {
+   "selectivity_ab": 2.085765445400575,
+   "selectivity_ba": 2.190663391609405,
+   "energy_share": 0.4621473719121242
+  },
+  "17": {
+   "selectivity_ab": 2.1250240335197463,
+   "selectivity_ba": 2.238523770404928,
+   "energy_share": 0.49538621003102695
+  },
+  "18": {
+   "selectivity_ab": 2.3920713513645753,
+   "selectivity_ba": 2.482315505780358,
+   "energy_share": 0.5088588576129314
+  },
+  "19": {
+   "selectivity_ab": 2.5868292195631564,
+   "selectivity_ba": 2.641606463611509,
+   "energy_share": 0.5298926665698676
+  },
+  "20": {
+   "selectivity_ab": 2.143788428516815,
+   "selectivity_ba": 2.2845487672412057,
+   "energy_share": 0.4610860142675793
+  },
+  "21": {
+   "selectivity_ab": 2.3812960077911702,
+   "selectivity_ba": 2.446137340063941,
+   "energy_share": 0.5241330155178652
+  },
+  "22": {
+   "selectivity_ab": 2.2333601193021977,
+   "selectivity_ba": 2.3582211289939825,
+   "energy_share": 0.37050835933422743
+  },
+  "23": {
+   "selectivity_ab": 2.8049744618008527,
+   "selectivity_ba": 2.8879371963486675,
+   "energy_share": 0.42859668346828655
+  },
+  "24": {
+   "selectivity_ab": 2.2971754122124075,
+   "selectivity_ba": 2.557646424570832,
+   "energy_share": 0.4052564914573747
+  },
+  "25": {
+   "selectivity_ab": 2.0676189676673427,
+   "selectivity_ba": 2.2669447923234185,
+   "energy_share": 0.39970477764739726
+  },
+  "26": {
+   "selectivity_ab": 2.877137619568217,
+   "selectivity_ba": 2.950623103613106,
+   "energy_share": 0.450450783560247
+  },
+  "27": {
+   "selectivity_ab": 2.7747845229289574,
+   "selectivity_ba": 2.8632611668713444,
+   "energy_share": 0.4523004183352788
+  },
+  "28": {
+   "selectivity_ab": 2.5871273488724227,
+   "selectivity_ba": 2.864010223282052,
+   "energy_share": 0.4398072615566188
+  },
+  "29": {
+   "selectivity_ab": 2.373738615072855,
+   "selectivity_ba": 2.590507504739981,
+   "energy_share": 0.4346390229054309
+  }
+ },
+ "source": "fit",
+ "prompts": [
+  "A serene scene unfolds with a delicate porcelain teacup resting on a rustic wooden table, bathed in the soft, golden light of early morning. The cup, adorned with intricate floral patterns, holds a steaming brew, its gentle wisps of steam curling upwards and dissipating into the air. Surrounding the cup are a few scattered tea leaves and a silver spoon, adding to the tranquil ambiance. In the background, a blurred view of a cozy kitchen window reveals the faint outline of a garden, hinting at the peaceful world outside. The entire setting exudes warmth and calm, inviting a moment of quiet reflection.",
+  "A serene kitchen scene features a rustic wooden counter bathed in soft morning light. At the center, a simple ceramic bowl, adorned with delicate blue floral patterns, rests peacefully. Surrounding it, a few scattered fresh lemons and a sprig of rosemary add a touch of natural beauty. The background reveals a cozy kitchen with vintage utensils hanging on the wall and a window with sheer curtains gently swaying in the breeze. The overall ambiance exudes warmth and tranquility, capturing a moment of quiet simplicity in a charming, sunlit kitchen.",
+  "A picturesque wrought-iron bench, intricately designed with elegant curves and patterns, sits serenely in a lush garden. Surrounding the bench, a vibrant array of blooming flowers in shades of pink, yellow, and purple create a stunning, colorful tapestry. The sunlight filters through the leaves of nearby trees, casting dappled shadows on the bench and flowers, enhancing the tranquil atmosphere. Butterflies flutter gently among the blossoms, and a soft breeze rustles the petals, adding a sense of peaceful movement to the scene. The overall ambiance is one of serene beauty and natural harmony.",
+  "A serene park bench, crafted from weathered wood and wrought iron, sits quietly under the shade of a sprawling oak tree. The bench faces a tranquil lake, its surface reflecting the soft hues of the setting sun. Gentle ripples disturb the water, creating a mesmerizing dance of light and shadow. Surrounding the bench, a carpet of fallen autumn leaves adds a touch of warmth and nostalgia. In the distance, a family of ducks glides gracefully across the lake, while the faint outline of distant hills provides a picturesque backdrop. The scene is framed by the delicate branches of nearby willow trees, their leaves whispering in the gentle breeze.",
+  "In a still frame, the ornate Victorian streetlamp stands solemnly, its intricate ironwork and stained glass panels illuminated by the soft glow of twilight. The lamp's delicate details, including swirling patterns and vibrant colors, contrast beautifully with the dusky sky. Surrounding the streetlamp, cobblestone streets glisten with a recent rain, reflecting the lamp's gentle light. Nearby, ivy-clad brick buildings add to the scene's timeless charm, while a gentle breeze rustles the leaves of an overhanging tree, casting subtle shadows on the ground. The atmosphere is serene, evoking a sense of nostalgia and quiet elegance.",
+  "In the heart of Plaka, the old city's neoclassical architecture harmonizes with ancient ruins, creating a tranquil tableau. Sunlight bathes the cobblestone streets, casting gentle shadows on pastel-colored buildings adorned with ornate balconies and blooming bougainvillea. The camera pans to reveal a bustling square where locals and tourists mingle, their laughter blending with the distant sound of a street musician playing a traditional Greek melody. Ancient columns and remnants of temples stand proudly amidst the modern-day scene, a testament to the city's rich history. The video captures the essence of Plaka, where the past and present coexist in serene harmony.",
+  "Beneath the sprawling branches of a solitary oak tree, an old wooden park bench sits patiently, bathed in dappled sunlight. The scene is serene, with the bench's weathered wood telling tales of countless visitors. The oak's leaves rustle gently in the breeze, casting intricate shadows on the ground. Nearby, a carpet of fallen leaves adds a touch of autumnal charm. The background features a soft-focus meadow, with wildflowers swaying gently. The overall ambiance is one of peace and timelessness, inviting viewers to pause and reflect in this tranquil setting.",
+  "A serene pond, its surface like glass, reflects the delicate branches of a weeping willow tree that drape gracefully over the water. The scene is bathed in the soft, golden light of late afternoon, casting a warm glow on the lush greenery. Gentle ripples disturb the pond's mirror-like stillness as a light breeze rustles the willow's leaves. Nearby, a pair of ducks glide effortlessly across the water, leaving gentle trails behind them. The air is filled with the soothing sounds of nature, creating a peaceful and calming atmosphere that invites quiet reflection and tranquility.",
+  "In a lush, vibrant forest clearing, a majestic elephant with wrinkled gray skin and large, flapping ears stands beside a towering, brown bear with a thick, glossy coat. The elephant gently sways its trunk, while the bear sniffs the air, their contrasting sizes and textures creating a captivating scene. Sunlight filters through the dense canopy above, casting dappled shadows on the forest floor. The elephant playfully sprays water from a nearby stream, and the bear, intrigued, watches with curious eyes. Birds chirp in the background, adding to the serene and harmonious atmosphere of this unique animal encounter.",
+  "A weathered baseball glove, rich with the patina of countless games, rests on a sunlit wooden bench in a quiet park. Nearby, a well-used skateboard with vibrant graffiti art on its deck leans against the bench, its wheels slightly worn from many adventures. The scene transitions to a close-up of the glove's intricate stitching and the skateboard's colorful design, highlighting their unique textures. As the camera pans out, the serene park setting, with its lush green grass and distant trees, frames these cherished items, evoking a sense of nostalgia and youthful freedom.",
+  "A vintage parking meter stands on a bustling city street, its weathered metal surface reflecting years of use. Nearby, a bright red delivery truck, adorned with a company logo, is parked at an angle, its driver-side door slightly ajar. The scene is set against a backdrop of urban life, with pedestrians walking by and the distant hum of city traffic. The parking meter, with its intricate dials and coin slot, contrasts with the modernity of the truck, creating a nostalgic yet contemporary urban tableau. The truck's polished exterior and the meter's rustic charm highlight the blend of old and new in the city's ever-evolving landscape.",
+  "A sleek, modern smartphone with a glossy black finish lies on a rustic wooden table, its screen reflecting ambient light. Beside it, a vibrant red apple with a perfect sheen sits, contrasting the technology with nature's simplicity. The camera zooms in to capture the intricate details of the apple's skin, highlighting its freshness. The phone's screen lights up, displaying a nature-themed wallpaper, creating a harmonious blend of digital and organic elements. The scene transitions to a close-up of the apple and phone side by side, emphasizing the juxtaposition of natural beauty and technological advancement.",
+  "A vibrant, colorful donut with pink frosting and rainbow sprinkles sits atop a sleek, modern suitcase in an airport terminal. The suitcase, a stylish black with silver accents, stands upright on its four wheels, ready for travel. The donut, perfectly placed on the suitcase's handle, adds a whimsical touch to the scene. The background features blurred travelers and departure boards, creating a sense of movement and anticipation. The lighting is bright, highlighting the donut's glossy glaze and the suitcase's polished surface, capturing a playful juxtaposition of everyday indulgence and the excitement of travel.",
+  "A bearded man in his thirties, wearing a plaid shirt and jeans, sits at a rustic wooden bar, surrounded by an array of beer taps and vintage brewery decor. He carefully lifts a frosty pint glass filled with amber beer, examining its color and clarity against the warm, ambient lighting. He takes a slow, appreciative sip, his eyes closing momentarily as he savors the complex flavors. The camera captures the subtle smile of satisfaction on his face, highlighting the rich foam on his upper lip. The background hum of soft chatter and clinking glasses adds to the cozy, inviting atmosphere of the pub.",
+  "A dedicated individual, dressed in a green flannel shirt, brown cargo pants, and sturdy boots, kneels in a sunlit clearing, carefully placing a young sapling into a freshly dug hole. The scene transitions to a close-up of their hands, gently patting the soil around the base of the tree, ensuring it is secure. The camera then captures the person standing, wiping sweat from their brow, and looking around at the rows of newly planted trees, their face reflecting a sense of accomplishment. Birds chirp in the background, and the sunlight filters through the leaves, casting a warm, golden glow over the burgeoning forest.",
+  "A vibrant individual, dressed in a colorful, patterned outfit, stands in a sunlit park, surrounded by lush greenery and blooming flowers. They skillfully twirl a bright, neon hula hoop around their waist, their movements fluid and rhythmic. The camera captures close-ups of their joyful expression, the sunlight glinting off their hoop, and the intricate patterns on their clothing. As they spin, the background reveals a serene pond with ducks swimming and a gentle breeze rustling the leaves of nearby trees. The scene exudes a sense of carefree joy and connection with nature.",
+  "A focused individual sits at a wooden desk, bathed in the warm glow of a vintage desk lamp, wearing a cozy sweater. The camera captures the close-up of their hand, gripping a fountain pen, as it glides smoothly across the parchment paper, leaving elegant, flowing script. The scene shifts to show their concentrated face, glasses perched on their nose, eyes intently following each word they write. The background reveals a bookshelf filled with leather-bound volumes and a softly ticking clock, adding to the serene, studious atmosphere. Finally, the person pauses, lifting the pen, and gazes thoughtfully at their work, a slight smile of satisfaction playing on their lips.",
+  "A spirited cheerleader, dressed in a vibrant red and white uniform with matching pom-poms, performs on a sunlit football field. The scene opens with a close-up of their beaming face, framed by a high ponytail adorned with a red ribbon. They execute a series of high-energy jumps and flips, their movements synchronized with the rhythmic chants of their team. The camera captures the fluid motion of their pom-poms, glinting in the sunlight. As they land a perfect split, the crowd in the background erupts in applause, their cheers blending with the cheerleader's infectious enthusiasm. The video concludes with a slow-motion shot of the cheerleader mid-air, capturing the grace and athleticism of their performance.",
+  "A determined individual in a sleek, black athletic outfit jogs along a winding forest trail, surrounded by towering trees and dappled sunlight filtering through the leaves. Their rhythmic strides create a sense of purpose and focus, with the soft crunch of leaves underfoot adding to the serene ambiance. As they run, the camera captures close-ups of their focused expression, beads of sweat forming on their brow, and the gentle sway of their ponytail. The scene transitions to a wider shot, revealing the lush greenery and the tranquil beauty of the forest, emphasizing the harmony between the jogger and nature.",
+  "A young woman with long, dark hair, wearing a cozy gray sweater and jeans, stands in a bright, modern laundry room. She carefully sorts clothes into piles, the sunlight streaming through a nearby window casting a warm glow. Next, she loads a front-loading washing machine with colorful garments, her movements deliberate and efficient. As the machine starts, she leans against the counter, sipping a cup of tea, her expression relaxed and content. Finally, she transfers the freshly washed clothes to a dryer, the room filled with the soft hum of the machines, creating a serene and productive atmosphere.",
+  "A serene individual sits in a cozy, sunlit room, surrounded by soft cushions and a warm blanket, knitting with focused precision. Their hands, adorned with a simple silver ring, skillfully maneuver vibrant, multicolored yarn through wooden needles. The camera captures close-up shots of the intricate patterns forming, highlighting the texture and colors of the yarn. The person's face, calm and content, reflects the meditative nature of the craft. A steaming cup of tea rests on a nearby table, adding to the tranquil atmosphere. The scene transitions to a wider view, revealing a finished, beautifully knitted scarf draped over a chair, symbolizing the culmination of their peaceful endeavor.",
+  "In a dimly lit, ancient stone courtyard, a skilled warrior clad in dark, flowing robes engages in an intense sword fight. The scene is set at twilight, with the last rays of the sun casting long shadows. The warrior's face, partially obscured by a hood, reveals fierce determination. Their opponent, equally skilled, wears a suit of gleaming armor that reflects the flickering torchlight. The clash of swords echoes through the courtyard as they move with fluid grace, each strike and parry a testament to their training. Dust rises from the ground with each swift movement, adding to the dramatic atmosphere. The background features ivy-covered walls and an old, weathered fountain, enhancing the sense of an epic, timeless duel.",
+  "A focused archer stands in a lush, green forest clearing, wearing a dark green tunic, brown leather bracers, and sturdy boots. The person, with a determined expression, draws back a finely crafted wooden bow, the string taut and ready to release. Sunlight filters through the dense canopy, casting dappled shadows on the forest floor. The archer's stance is steady, their eyes locked on a distant target. As the arrow is released, it soars gracefully through the air, cutting through the serene silence of the forest. The scene captures the essence of precision, skill, and the timeless art of archery.",
+  "A young athlete, dressed in a classic white baseball uniform with blue accents, stands on a sunlit baseball field, the green grass contrasting with the brown dirt. In one scene, they are poised to catch a high-flying baseball, their glove raised and eyes focused, capturing the intensity of the moment. The next scene shows them in mid-throw, their body twisting with power and precision, the baseball a blur as it leaves their hand. The backdrop of the field, with its neatly lined bases and distant bleachers, adds to the authentic atmosphere of the game.",
+  "A sleek, modern airplane, painted in a striking blue and white livery, taxis down the runway of a bustling airport, engines roaring with power. The camera captures a close-up of the landing gear lifting off the ground, followed by a wide shot of the aircraft ascending against a backdrop of a vibrant sunset, with hues of orange, pink, and purple painting the sky. As the plane climbs higher, the cityscape below becomes a mosaic of twinkling lights, and the horizon stretches infinitely. The final shot shows the airplane soaring gracefully into the clouds, leaving a trail of vapor against the twilight sky, symbolizing the beginning of a new journey.",
+  "A sleek, modern train with silver and blue accents races down the tracks, cutting through a picturesque countryside at dawn. The sun's first light glistens off the train's polished exterior, casting long shadows across the dew-kissed grass. As it speeds past, the rhythmic clatter of wheels on rails creates a mesmerizing soundtrack. The train's windows reveal glimpses of passengers, some sipping coffee, others engrossed in books, all bathed in the warm, golden glow of the morning sun. The landscape blurs into a tapestry of greens and yellows, with distant mountains standing tall against a pastel sky, enhancing the sense of swift, purposeful travel.",
+  "A small wooden boat with a single white sail glides effortlessly across a mirror-like lake, reflecting the clear blue sky and surrounding lush green hills. The boat's polished wood gleams in the sunlight, and gentle ripples trail behind it, creating a serene and tranquil scene. The water is so calm that the boat appears to be floating on glass, with the distant mountains and a few scattered clouds perfectly mirrored on the lake's surface. The soft sound of water lapping against the boat adds to the peaceful ambiance, as the boat continues its smooth journey across the pristine lake.",
+  "A solitary figure stands on a windswept cliff, their silhouette framed by a dramatic sunset, wearing a long, flowing coat that billows in the breeze. The sky is ablaze with hues of orange, pink, and purple, casting a warm glow on the scene. The person gazes out over the vast ocean, waves crashing against the rocks below, embodying a sense of contemplation and solitude. As the camera zooms in, their face reveals a serene expression, eyes reflecting the colors of the sky. The final shot captures them turning away, walking along the cliff's edge, the coat trailing behind, as the sun dips below the horizon.",
+  "A sleek, midnight blue sports car glides effortlessly along a winding coastal road, the sun setting in the background casting a golden hue over the scene. The car's polished exterior gleams under the fading light, highlighting its aerodynamic curves and stylish design. As it accelerates, the powerful engine roars, echoing through the serene landscape. The camera zooms in to capture the intricate details of the car's chrome grille and LED headlights, which pierce through the twilight. Inside, the luxurious leather interior and advanced dashboard display a blend of comfort and cutting-edge technology, epitomizing modern automotive excellence.",
+  "A vibrant yellow school bus, with its polished exterior gleaming under the midday sun, cruises down a quiet suburban street lined with autumn-colored trees. The bus's windows reflect the clear blue sky, while inside, rows of empty seats await the return of students. As it approaches a stop sign, the bus's red lights flash, and the stop arm extends, signaling its brief pause. The scene shifts to a close-up of the bus's front, showcasing its iconic grille and headlights, before panning out to reveal the bus continuing its journey, leaves gently falling around it, capturing the essence of a peaceful, routine day.",
+  "A rugged, weathered backpack sits on a moss-covered rock in a dense forest, its canvas material showing signs of countless adventures. The backpack, adorned with various patches and pins from different countries, has leather straps and brass buckles that glint in the dappled sunlight filtering through the trees. As the camera zooms in, the details of the worn fabric and the intricate stitching become apparent, telling a story of resilience and exploration. The scene shifts to the backpack being hoisted onto a hiker's shoulders, the sound of crunching leaves underfoot and distant bird calls enhancing the sense of a journey about to unfold. Finally, the backpack is seen resting against a tree trunk beside a crackling campfire, with the soft glow of the flames reflecting off its surface, symbolizing the end of a day's adventure and the promise of more to come.",
+  "A well-worn baseball glove, rich with character, lies on a sunlit wooden bench, its leather creased and darkened from years of use. The camera zooms in to reveal the intricate stitching and the faint initials of its owner etched into the leather. The glove's fingers are splayed open, ready to catch an imaginary ball, while the sunlight casts soft shadows, highlighting its texture. In the background, the faint sounds of a distant baseball game can be heard, adding a nostalgic ambiance. The scene transitions to a close-up of the glove's palm, showing the deep pocket formed from countless catches, symbolizing dedication and countless memories on the field."
+ ],
+ "seeds": [
+  9000000,
+  9000001,
+  9000002,
+  9000003,
+  9000004,
+  9000005,
+  9000006,
+  9000007
+ ],
+ "steps": [
+  0,
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9,
+  10,
+  11,
+  12,
+  13,
+  14,
+  15,
+  16,
+  17,
+  18,
+  19,
+  20
+ ],
+ "frame_mean": true
+}

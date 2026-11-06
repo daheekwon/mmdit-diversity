@@ -1,0 +1,12 @@
+# Generated images, metrics and run state (46 GB): machine-local.
+outputs/
+# Basis files: moments are 1.7-3.8 GB each, and flux_legacy_dev8_k256.pt (120 MB) is over GitHub's 100 MiB file limit.
+# Move the .pt files by hand (scp); the .json next to each one stays in git.
+bases/*.pt
+# Third-party weights (Inception for FID, LAION aesthetic head): download them again.
+weights/
+# Comparison sheets and job logs of the experiments.
+experiments/**/sheets/
+experiments/**/logs/
+__pycache__/
+.pytest_cache/

@@ -1,0 +1,155 @@
+pid,row,seed,kind,note
+ho3_animal_00,A,11,style,pixel art
+ho3_animal_00,A,15,style,cartoon
+ho3_animal_00,D,5,style,flat illustration sky field
+ho3_animal_01,A,0,insert,pink float
+ho3_animal_01,A,5,panel,3 panels
+ho3_animal_01,A,8,style,watercolour
+ho3_animal_01,B,0,insert,pink float
+ho3_animal_01,B,3,bar,white border top/right
+ho3_animal_01,B,5,panel,panels
+ho3_animal_01,C,0,style,cartoon
+ho3_animal_01,C,1,style,woodcut
+ho3_animal_01,C,2,style,illustration
+ho3_animal_01,C,5,style,text banner
+ho3_animal_01,C,6,style,cartoon
+ho3_animal_01,C,7,style,cartoon
+ho3_animal_01,C,8,style,sepia illustration
+ho3_animal_01,C,9,style,cartoon
+ho3_animal_01,C,11,style,pixel art
+ho3_animal_01,C,15,style,cartoon
+ho3_animal_01,D,0,insert,pink blob on mouth
+ho3_animal_01,D,3,bar,tan bars top/bottom with signature
+ho3_animal_02,A,5,panel,collage with face
+ho3_animal_02,A,6,style,illustration
+ho3_animal_02,A,7,style,psychedelic illustration
+ho3_animal_02,A,11,style,illustration
+ho3_animal_02,A,15,style,illustration
+ho3_animal_02,B,0,deform,giant beak blob
+ho3_animal_02,B,3,bar,black letterbox
+ho3_animal_02,B,5,panel,collage with faces
+ho3_animal_02,B,6,insert,man torso
+ho3_animal_02,C,0,deform,giant beak blob
+ho3_animal_02,C,3,bar,black letterbox
+ho3_animal_02,C,5,panel,collage with faces
+ho3_animal_02,C,6,insert,man torso
+ho3_animal_02,C,9,panel,two halves
+ho3_animal_02,D,0,deform,giant beak blob
+ho3_animal_02,D,5,panel,collage with faces
+ho3_animal_02,D,11,style,notebook illustration with text
+ho3_object_00,A,1,style,abstract painting zigzag
+ho3_object_00,A,5,panel,collage of faces
+ho3_object_00,A,7,style,painting
+ho3_object_00,A,9,style,painted yellow illustration
+ho3_object_00,A,15,style,cartoon polka background
+ho3_object_00,B,1,noise,leather texture no accordion
+ho3_object_00,B,5,panel,collage of faces
+ho3_object_00,B,7,style,painting
+ho3_object_00,D,1,panel,collage of many accordion photos
+ho3_object_00,D,5,style,handwritten text over paisley
+ho3_object_00,D,14,bar,transparency checkerboard background
+ho3_object_00,E,5,panel,collage of boy faces
+ho3_object_01,C,2,bar,white line across bottom
+ho3_object_01,C,5,panel,top/bottom split
+ho3_object_01,D,5,panel,split panels
+ho3_object_01,D,12,style,text block caption
+ho3_object_01,E,2,bar,white line across bottom
+ho3_object_01,E,5,panel,top/bottom split
+ho3_object_02,A,3,bar,album cover black border + text
+ho3_object_02,C,3,bar,album cover black border + text
+ho3_object_02,E,1,style,halftone posterized
+ho3_object_02,E,11,style,pixel art
+ho3_relation_00,E,1,style,painting
+ho3_relation_00,E,5,panel,top scene / flat green bottom
+ho3_relation_02,A,2,style,anime cartoon
+ho3_relation_02,A,8,style,cartoon
+ho3_relation_02,C,3,bar,magazine page layout with text
+ho3_relation_02,D,3,bar,magazine page layout with text
+ho3_relation_02,E,3,bar,magazine page layout with text
+ho3_relation_02,E,5,style,flat sky + green field tiny subject
+ho3_scene_00,A,5,panel,three strips white lines
+ho3_scene_00,B,5,panel,group photo panels
+ho3_scene_00,D,5,panel,people panels
+ho3_scene_00,E,0,style,illustration
+ho3_scene_00,E,5,panel,cartoon animal panels
+ho3_scene_00,E,6,insert,black vehicle
+ho3_scene_00,E,7,style,illustration
+ho3_scene_00,E,9,style,illustration
+ho3_scene_00,E,10,style,illustration
+ho3_scene_00,E,11,style,illustration
+ho3_scene_01,A,5,panel,top/bottom split
+ho3_scene_01,A,9,panel,two side-by-side
+ho3_scene_01,C,5,panel,four quadrants
+ho3_scene_01,D,5,panel,top/bottom split
+ho3_scene_01,E,5,panel,three strips
+ho3_scene_01,E,6,style,text banner
+ho3_scene_01,E,8,style,pencil sketch
+ho3_scene_01,E,13,panel,four quadrants
+ho3_scene_02,A,5,panel,top/bottom split
+ho3_scene_02,C,5,panel,top/bottom split
+ho3_scene_02,D,5,panel,top/bottom split
+ho3_scene_02,D,11,style,illustration
+ho3_scene_02,E,5,panel,top/bottom split
+ho3_scene_02,E,12,style,poster text block
+rare_ho3_narwhal,A,3,bar,black letterbox
+rare_ho3_narwhal,A,14,bar,grey bars top/bottom
+rare_ho3_narwhal,B,3,bar,black letterbox
+rare_ho3_narwhal,B,5,panel,top/bottom split
+rare_ho3_narwhal,B,14,bar,frame border with caption
+rare_ho3_narwhal,C,0,insert,pink blob
+rare_ho3_narwhal,C,3,bar,black bar top
+rare_ho3_narwhal,C,5,panel,top/bottom split
+rare_ho3_narwhal,C,13,bar,brown band bottom
+rare_ho3_narwhal,C,14,bar,checkerboard border + text
+rare_ho3_narwhal,E,2,style,magazine cover text
+rare_ho3_narwhal,E,5,panel,top/bottom split
+rare_ho3_narwhal,E,8,style,jigsaw texture overlay
+rare_ho3_narwhal,E,11,bar,transparency checkerboard background
+rare_ho3_narwhal,E,12,bar,checkerboard texture on body
+rare_ho3_narwhal,E,13,style,magazine cover text
+rare_ho3_narwhal,E,14,bar,dark frame border with text
+rare_ho3_okapi,B,3,bar,black frame + text
+rare_ho3_okapi,B,5,panel,top/bottom split
+rare_ho3_okapi,C,3,bar,black frame + text
+rare_ho3_okapi,C,5,panel,top/bottom split
+rare_ho3_okapi,C,14,bar,frame border + text
+rare_ho3_okapi,D,0,deform,red blurred blob
+rare_ho3_okapi,D,2,bar,dark vignette frame
+rare_ho3_okapi,D,3,bar,frame + text
+rare_ho3_okapi,D,5,panel,top/bottom split
+rare_ho3_okapi,D,11,bar,checkerboard background
+rare_ho3_okapi,D,14,deform,black fuzz blob
+rare_ho3_okapi,E,5,panel,top/bottom split
+rare_ho3_quokka,A,3,bar,black letterbox
+rare_ho3_quokka,A,5,panel,top/bottom split
+rare_ho3_quokka,A,14,bar,circular vignette frame + caption
+rare_ho3_quokka,B,2,bar,light vignette frame
+rare_ho3_quokka,B,3,bar,black frame + text
+rare_ho3_quokka,B,5,panel,top/bottom reflection split
+rare_ho3_quokka,B,14,bar,text top + checkerboard bottom
+rare_ho3_quokka,C,5,panel,top/bottom split
+rare_ho3_quokka,D,2,bar,light vignette frame
+rare_ho3_quokka,D,3,bar,black frame
+rare_ho3_quokka,D,5,panel,top/bottom reflection split
+rare_ho3_quokka,D,14,bar,frame with text
+rare_ho3_sextant,A,2,bar,white frame + black bottom bar
+rare_ho3_sextant,A,5,panel,top/bottom split
+rare_ho3_sextant,B,2,bar,white line + black bottom bar
+rare_ho3_sextant,B,5,panel,top/bottom split
+rare_ho3_sextant,C,1,style,carved relief
+rare_ho3_sextant,C,2,noise,white stick grid abstract
+rare_ho3_sextant,E,3,noise,dark scratches
+rare_ho3_sextant,E,8,style,drawing
+rare_ho3_sextant,E,12,noise,abstract texture
+rare_ho3_sextant,E,14,style,painting with caption
+rare_ho3_theodolite,A,3,bar,dark frame + caption text
+rare_ho3_theodolite,A,5,panel,top/bottom split
+rare_ho3_theodolite,B,2,bar,white frame + black bottom bar
+rare_ho3_theodolite,B,3,noise,needle texture with text
+rare_ho3_theodolite,B,5,style,flat sky + field tiny subject
+rare_ho3_theodolite,B,10,noise,abstract splat
+rare_ho3_theodolite,B,14,bar,white frame border
+rare_ho3_theodolite,B,15,noise,ring pattern on grass
+rare_ho3_zither,A,5,panel,top/bottom split
+rare_ho3_zither,B,5,noise,blurred streaks
+rare_ho3_zither,B,12,noise,grass texture faint line

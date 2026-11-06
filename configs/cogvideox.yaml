@@ -1,0 +1,65 @@
+# CogVideoX-2B (zai-org, formerly THUDM), text-to-video. Model-card setting: 49 frames at 8 fps, 480x720, 50 DDIM steps
+# (v-prediction, zero terminal SNR, SNR shift 3), guidance 6, no dynamic CFG, fp16. Blocks 0-29, all joint attention.
+# Video tokens: 13 latent frames x 30 x 45 = 17,550; text: T5 226 tokens, no mask (pad tokens carry prompt context, as in SD3.5).
+# Pilot defaults (experiments/E02_t2v_cogvideox_pilot/PROTOCOL_ko.md). Step ranges come from SD3.5 by noise level:
+# SD3.5 steps 0-3 -> 0-6, 0-11 -> 0-20 (the last edited step's input noise level sigma, with sigma = sqrt(1-a)/(sqrt(a)+sqrt(1-a))
+# for DDIM). Blocks: all (block-choice rule). Strength: the SD3.5 candidate's relative V change (lam 1.3 x unit 0.733).
+model:
+  name: cogvideox
+  hf_id: zai-org/CogVideoX-2b
+  revision: 1137dacfc2c9c012bed6a0793f4ecf2ca8e7ba01
+  local_files_only: true
+  dtype: float16
+  offload: true            # enable_model_cpu_offload (GPUs are shared)
+  vae_tiling: true         # VAE decodes one video at a time, in spatial tiles
+  height: 480
+  width: 720
+  num_frames: 49
+  fps: 8
+  steps: 50
+  guidance: 6.0
+  dynamic_cfg: false
+  max_sequence_length: 226
+  batch_size: 1            # videos per pipeline call; set from the pilot's memory measurement
+
+method:
+  v_edit:                  # video V rows: V' = V + (lam-1) Q Q^T (V - b)
+    enabled: false
+    basis: bases/cogvideox_pilot_k256.pt     # calib_dimension_longer_32.txt x 8 seeds (E02 fit_basis_resumable.py)
+    strength: 0.22         # relative V change ||V'-V||/||V|| of the SD3.5 candidate (lam 1.3, unit 0.733)
+    lam: null
+    time_mean: false       # true: add the mean over the 13 latent frames of (lam-1) Q Q^T (V - b) to every frame (E02 7c)
+    blocks: all
+    steps: 0-20
+  pad_v:                   # video queries read the padding tokens' values x factor (attention mass unchanged)
+    enabled: false
+    factor: 0.125
+    blocks: all
+    steps: 0-20
+  head:                    # (undecided) not used for video
+    enabled: false
+    beta: 0.85
+    blocks: all
+    steps: 0-6
+  dave:                    # DC (mean over all video tokens, all frames) of the video stream entering `block` x alpha
+    enabled: false
+    alpha: 0.5
+    block: 7               # SD3.5 block 6 of 24 at the same relative depth (user-confirmed 2026-11-04)
+    steps: 0-6
+  cads:                    # noise on the text condition, per video
+    enabled: false
+    noise_scale: 0.25
+    tau1: 0.6
+    tau2: 0.9
+    psi: 1.0
+    rescale: true
+
+presets:
+  original: {}
+  ours: {v_edit: {enabled: true}, pad_v: {enabled: true}}
+  v_edit: {v_edit: {enabled: true}}
+  pad_v: {pad_v: {enabled: true}}
+  dave: {dave: {enabled: true}}
+  cads: {cads: {enabled: true}}
+  ours_time_mean: {v_edit: {enabled: true, time_mean: true}, pad_v: {enabled: true}}
+  v_edit_time_mean: {v_edit: {enabled: true, time_mean: true}}

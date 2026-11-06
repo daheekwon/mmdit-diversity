@@ -1,0 +1,2 @@
+approved by user 2026-11-05: DAVE alpha 0.2, block 13, steps 0-19 (configs/klein.yaml dave)
+changed 2026-11-05 20:00 by user: DAVE steps 0-10 (dave_a0.2~0-10, override dave.steps=0-10) is the DAVE for rules 1-2 on dev and ho3; steps 0-19 dropped from the ho3 queue, kept on dev (already run). See PROTOCOL_ko.md 4.4

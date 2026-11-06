@@ -1,0 +1,50 @@
+[
+ {
+  "set": "test",
+  "row": 30,
+  "old_image": 411530,
+  "old_caption": "Many skiers are waiting to ride a chair lift.",
+  "new_image": 149406,
+  "new_caption": "A motorcycle parked in front of green doors."
+ },
+ {
+  "set": "test",
+  "row": 272,
+  "old_image": 156071,
+  "old_caption": "A group of people standing around at a rodeo.",
+  "new_image": 67406,
+  "new_caption": "Adult males in large grassy field with large kite."
+ },
+ {
+  "set": "test",
+  "row": 392,
+  "old_image": 140583,
+  "old_caption": "A group of animals that are walking down the road.",
+  "new_image": 131138,
+  "new_caption": "Large office desk with computers near a window."
+ },
+ {
+  "set": "test",
+  "row": 432,
+  "old_image": 410878,
+  "old_caption": "A motorcycle is parked on a gravel road.",
+  "new_image": 484893,
+  "new_caption": "Two children petting sheep in a wooden pen with straw bedding."
+ },
+ {
+  "set": "test",
+  "row": 433,
+  "old_image": 229311,
+  "old_caption": "An empty kitchen sink underneath a window, on the counter.",
+  "new_image": 409542,
+  "new_caption": "a group of people walk on a side walk next to a clock"
+ },
+ {
+  "set": "tune",
+  "row": 42,
+  "old_image": 513688,
+  "old_caption": "A desk set up as a workstation with a laptop",
+  "new_image": 104669,
+  "new_caption": "The meal features steak and potatoes on the plate.."
+ }
+]

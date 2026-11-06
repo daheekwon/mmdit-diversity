@@ -1,0 +1,55 @@
+# FLUX.1-dev. Settings match every earlier FLUX result in value_diversity/.
+# Global block numbers: double blocks 0-18, single blocks 19-56.
+model:
+  name: flux
+  hf_id: black-forest-labs/FLUX.1-dev
+  revision: 3de623fc3c33e44ffbe2bad470d0f45bccf2eb21
+  local_files_only: true
+  dtype: bfloat16
+  offload: true
+  resolution: 1024         # default 1024 (user 2026-11-05); value_diversity results and the legacy bases are 512
+  steps: 28
+  guidance: 3.5
+  max_sequence_length: 256
+  batch_size: 10
+
+method:
+  v_edit:
+    enabled: false
+    basis: bases/flux_legacy_dev8_k256.pt
+    lam: 1.72              # the same lam on every edited block (value_diversity flux_coco_final, 2026-11-05)
+    strength: null         # alternative to lam: relative image-V change, lam = 1 + strength/unit; set one of the two
+    blocks: 19-37
+    steps: 0-5
+    rows: all              # image: only image-query rows read the edited V (DESIGN_vrows_ko.md); all: every row
+  pad_v:
+    enabled: false
+    factor: 0.25
+    blocks: all
+    steps: 0-5             # same steps as v_edit
+  head:
+    enabled: false
+    beta: 0.2
+    blocks: all
+    steps: 0-3
+  dave:
+    enabled: false
+    alpha: 0.2
+    block: 30
+    steps: 0-5
+  cads:
+    enabled: false
+    noise_scale: 0.25
+    tau1: 0.6
+    tau2: 0.9
+    psi: 1.0
+    rescale: true
+
+presets:
+  original: {}
+  ours: {v_edit: {enabled: true}, pad_v: {enabled: true}}
+  ours_head: {v_edit: {enabled: true}, pad_v: {enabled: true}, head: {enabled: true}}
+  v_edit: {v_edit: {enabled: true}}
+  pad_v: {pad_v: {enabled: true}}
+  dave: {dave: {enabled: true}}
+  cads: {cads: {enabled: true}}

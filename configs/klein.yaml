@@ -1,0 +1,54 @@
+# FLUX.2-klein-base-4B (undistilled base, true CFG). Same pipeline settings as value_diversity/uvr_attention.py klein:
+# 512 x 512, 50 steps, guidance 4.0, Qwen3 text padded to 512 slots. Global block numbers: double 0-4, single 5-24.
+# Port of the method: experiments/E03_klein_port/PROTOCOL_ko.md (2026-11-05).
+model:
+  name: klein
+  hf_id: black-forest-labs/FLUX.2-klein-base-4B
+  revision: a3b4f4849157f664bdbc776fd7453c2783562f4d
+  cache_dir: /DATA0/dahee/.cache/huggingface/hub
+  local_files_only: true
+  dtype: bfloat16
+  offload: true
+  resolution: 512
+  steps: 50
+  guidance: 4.0
+  max_sequence_length: 512
+  batch_size: 16
+
+method:
+  v_edit:
+    enabled: false
+    basis: bases/klein_dev8_s0-4_k256.pt    # 8 dev prompts x seeds 40000-40015, both CFG calls, steps 0-4 (as FLUX.1 / SD3.5)
+    strength: null
+    lam: 1.5               # E03 grid: lam 1.3-1.7
+    blocks: 5-24           # E03: all single blocks 5-24 or 10-15
+    steps: 0-4             # E03: 0-4 or 0-6 (pad_v on the same steps)
+  pad_v:
+    enabled: false
+    factor: 0.25
+    blocks: all
+    steps: 0-4
+  head:
+    enabled: false
+    beta: 0.2
+    blocks: all
+    steps: 0-3
+  dave:
+    enabled: false
+    alpha: 0.2             # FLUX.1 standard alpha; block / steps moved from FLUX.1 block 30 / steps 0-5 (E03 protocol)
+    block: 13
+    steps: 0-19
+  cads:                    # not implemented for klein (two CFG calls per step)
+    enabled: false
+    noise_scale: 0.25
+    tau1: 0.6
+    tau2: 0.9
+    psi: 1.0
+    rescale: true
+
+presets:
+  original: {}
+  ours: {v_edit: {enabled: true}, pad_v: {enabled: true}}
+  v_edit: {v_edit: {enabled: true}}
+  pad_v: {pad_v: {enabled: true}}
+  dave: {dave: {enabled: true}}

@@ -1,0 +1,324 @@
+{
+ "table": [
+  {
+   "cond": "Original",
+   "panel": 0,
+   "bar": 0,
+   "insert": 0,
+   "noise": 0,
+   "deform": 0,
+   "style": 0,
+   "struct": 0,
+   "all": 0,
+   "all_%": 0.0,
+   "struct_%": 0.0,
+   "judge_brk": 2,
+   "eye&judge": 0,
+   "eye_only(judge missed)": 0,
+   "judge_only": 2,
+   "prompts_with_fail": 0,
+   "on_seed5": 0
+  },
+  {
+   "cond": "DAVE 0-10",
+   "panel": 10,
+   "bar": 4,
+   "insert": 1,
+   "noise": 1,
+   "deform": 0,
+   "style": 34,
+   "struct": 16,
+   "all": 50,
+   "all_%": 17.36111111111111,
+   "struct_%": 5.555555555555555,
+   "judge_brk": 37,
+   "eye&judge": 29,
+   "eye_only(judge missed)": 21,
+   "judge_only": 8,
+   "prompts_with_fail": 14,
+   "on_seed5": 10
+  },
+  {
+   "cond": "ours l1.3",
+   "panel": 9,
+   "bar": 10,
+   "insert": 2,
+   "noise": 0,
+   "deform": 1,
+   "style": 0,
+   "struct": 22,
+   "all": 22,
+   "all_%": 7.638888888888889,
+   "struct_%": 7.638888888888889,
+   "judge_brk": 3,
+   "eye&judge": 0,
+   "eye_only(judge missed)": 22,
+   "judge_only": 3,
+   "prompts_with_fail": 12,
+   "on_seed5": 8
+  },
+  {
+   "cond": "ours l1.5",
+   "panel": 14,
+   "bar": 14,
+   "insert": 2,
+   "noise": 1,
+   "deform": 1,
+   "style": 2,
+   "struct": 32,
+   "all": 34,
+   "all_%": 11.805555555555555,
+   "struct_%": 11.11111111111111,
+   "judge_brk": 12,
+   "eye&judge": 4,
+   "eye_only(judge missed)": 30,
+   "judge_only": 8,
+   "prompts_with_fail": 15,
+   "on_seed5": 13
+  },
+  {
+   "cond": "ours l1.7",
+   "panel": 11,
+   "bar": 13,
+   "insert": 2,
+   "noise": 7,
+   "deform": 3,
+   "style": 12,
+   "struct": 36,
+   "all": 48,
+   "all_%": 16.666666666666668,
+   "struct_%": 12.5,
+   "judge_brk": 31,
+   "eye&judge": 10,
+   "eye_only(judge missed)": 38,
+   "judge_only": 21,
+   "prompts_with_fail": 16,
+   "on_seed5": 15
+  }
+ ],
+ "k": {
+  "ho3_animal_00": 14,
+  "ho3_animal_01": 6,
+  "ho3_animal_02": 11,
+  "ho3_object_00": 11,
+  "ho3_object_01": 14,
+  "ho3_object_02": 14,
+  "ho3_relation_00": 14,
+  "ho3_relation_01": 16,
+  "ho3_relation_02": 14,
+  "ho3_scene_00": 9,
+  "ho3_scene_01": 12,
+  "ho3_scene_02": 14,
+  "rare_ho3_narwhal": 9,
+  "rare_ho3_okapi": 10,
+  "rare_ho3_quokka": 12,
+  "rare_ho3_sextant": 12,
+  "rare_ho3_theodolite": 10,
+  "rare_ho3_zither": 14
+ },
+ "skipped": [],
+ "n_prompts_vendi": 18,
+ "dV_full": {
+  "Original": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "DAVE 0-10": [
+   1.9131380981869168,
+   1.4954360014862484,
+   2.2873067706823345
+  ],
+  "ours l1.3": [
+   1.6673544380399916,
+   1.334504235121939,
+   2.0324132846461396
+  ],
+  "ours l1.5": [
+   2.0236998001734414,
+   1.5705522189537684,
+   2.498539850115776
+  ],
+  "ours l1.7": [
+   3.3883460760116577,
+   2.7535295993089677,
+   4.170181747608715
+  ]
+ },
+ "dV_all_k": {
+  "Original": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "DAVE 0-10": [
+   1.5505428628789053,
+   1.1903168085826765,
+   1.8971773584428755
+  ],
+  "ours l1.3": [
+   1.3489287259711158,
+   1.070892827937007,
+   1.6566927839229497
+  ],
+  "ours l1.5": [
+   1.6391276880502699,
+   1.2474955069286955,
+   2.0306585665027304
+  ],
+  "ours l1.7": [
+   2.6451454825268854,
+   2.1927792419764733,
+   3.196795863459838
+  ]
+ },
+ "dV_clean": {
+  "Original": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "DAVE 0-10": [
+   1.3696887580288781,
+   0.9953365229851671,
+   1.7517867202460764
+  ],
+  "ours l1.3": [
+   1.2674060529735356,
+   0.992526088986463,
+   1.5903912577129076
+  ],
+  "ours l1.5": [
+   1.5233427197403377,
+   1.125920076483157,
+   1.9318314637869596
+  ],
+  "ours l1.7": [
+   2.4123010380533008,
+   1.9614329776154622,
+   2.8894174097408847
+  ]
+ },
+ "vsDAVE_clean": {
+  "Original": [
+   -1.3696887580288781,
+   -1.7532025644848745,
+   -0.9788256909913489
+  ],
+  "DAVE 0-10": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "ours l1.3": [
+   -0.1022827050553427,
+   -0.422797926153077,
+   0.22597837988568673
+  ],
+  "ours l1.5": [
+   0.15365396171145973,
+   -0.1512133168571525,
+   0.4368477330479357
+  ],
+  "ours l1.7": [
+   1.0426122800244226,
+   0.6516037668791081,
+   1.50052118820548
+  ]
+ },
+ "vsDAVE_all_k": {
+  "Original": [
+   -1.5505428628789053,
+   -1.9145050264507533,
+   -1.2070601830095065
+  ],
+  "DAVE 0-10": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "ours l1.3": [
+   -0.20161413690778943,
+   -0.5370722909887631,
+   0.14507699389523893
+  ],
+  "ours l1.5": [
+   0.08858482517136472,
+   -0.2625996155235501,
+   0.42123786407907793
+  ],
+  "ours l1.7": [
+   1.09460261964798,
+   0.6291628762311404,
+   1.5776893753018641
+  ]
+ },
+ "per_prompt_fail": {
+  "Original": {},
+  "DAVE 0-10": {
+   "ho3_animal_00": 2,
+   "ho3_animal_01": 10,
+   "ho3_animal_02": 5,
+   "ho3_object_00": 3,
+   "ho3_object_01": 2,
+   "ho3_object_02": 2,
+   "ho3_relation_02": 2,
+   "ho3_scene_00": 7,
+   "ho3_scene_01": 4,
+   "ho3_scene_02": 2,
+   "rare_ho3_narwhal": 7,
+   "rare_ho3_okapi": 1,
+   "rare_ho3_quokka": 1,
+   "rare_ho3_sextant": 2
+  },
+  "ours l1.3": {
+   "ho3_animal_01": 2,
+   "ho3_animal_02": 4,
+   "ho3_object_00": 1,
+   "ho3_object_02": 1,
+   "ho3_relation_02": 1,
+   "ho3_scene_00": 1,
+   "ho3_scene_01": 2,
+   "ho3_scene_02": 1,
+   "rare_ho3_narwhal": 2,
+   "rare_ho3_okapi": 2,
+   "rare_ho3_quokka": 3,
+   "rare_ho3_sextant": 2
+  },
+  "ours l1.5": {
+   "ho3_animal_01": 3,
+   "ho3_animal_02": 5,
+   "ho3_object_00": 3,
+   "ho3_object_01": 2,
+   "ho3_object_02": 1,
+   "ho3_relation_02": 1,
+   "ho3_scene_00": 1,
+   "ho3_scene_01": 1,
+   "ho3_scene_02": 2,
+   "rare_ho3_narwhal": 3,
+   "rare_ho3_okapi": 3,
+   "rare_ho3_quokka": 4,
+   "rare_ho3_sextant": 2,
+   "rare_ho3_theodolite": 2,
+   "rare_ho3_zither": 1
+  },
+  "ours l1.7": {
+   "ho3_animal_00": 1,
+   "ho3_animal_01": 3,
+   "ho3_animal_02": 3,
+   "ho3_object_00": 5,
+   "ho3_object_01": 2,
+   "ho3_relation_00": 2,
+   "ho3_relation_02": 2,
+   "ho3_scene_00": 1,
+   "ho3_scene_01": 1,
+   "ho3_scene_02": 1,
+   "rare_ho3_narwhal": 5,
+   "rare_ho3_okapi": 6,
+   "rare_ho3_quokka": 4,
+   "rare_ho3_sextant": 4,
+   "rare_ho3_theodolite": 6,
+   "rare_ho3_zither": 2
+  }
+ }
+}
